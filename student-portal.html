@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101f38">
+<title>Student Portal | ABM Global Online College</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #101f38;
+  --navy2: #192e4e;
+  --navy3: #243d60;
+  --gold: #d7a233;
+  --gold-light: #f6edda;
+  --bg: #f4f6f9;
+  --white: #ffffff;
+  --text: #1c293b;
+  --muted: #8a96a6;
+  --border: #e9edf2;
+  --green: #27845a;
+  --green-bg: #eaf5ee;
+  --shadow: 0 8px 30px rgba(20,38,64,.045);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button, a { font: inherit; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 260px;
+  background: var(--navy);
+  color: white;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 19px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 9px 29px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.brand-logo {
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(215,162,51,.65);
+  background: rgba(215,162,51,.09);
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.brand-caption {
+  color: #9cacc1;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.nav-label {
+  color: #8293aa;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 28px 11px 12px;
+}
+
+.nav {
+  display: grid;
+  gap: 6px;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #b1bdcd;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 12px 13px;
+  border-radius: 8px;
+  transition: .2s;
+}
+
+.nav a:hover {
+  background: rgba(255,255,255,.07);
+  color: white;
+}
+
+.nav a.active {
+  background: linear-gradient(100deg, #d7a233, #e6bc68);
+  color: #15243b;
+  box-shadow: 0 5px 15px rgba(215,162,51,.17);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.support-box {
+  padding: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.support-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.support-box p {
+  color: #aab8ca;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.support-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding: 15px 8px 0;
+  color: #8091a9;
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+/* MAIN AREA */
+
+.main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  min-width: 0;
+}
+
+/* TOPBAR */
+
+.topbar {
+  height: 76px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.breadcrumb {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.breadcrumb strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.search {
+  width: 205px;
+  height: 37px;
+  background: #f6f7f9;
+  border: 1px solid #edf0f3;
+  border-radius: 7px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.search:focus {
+  border-color: var(--gold);
+}
+
+.notification {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  position: relative;
+  font-size: 16px;
+  background: white;
+}
+
+.notification::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border: 2px solid white;
+  border-radius: 50%;
+  top: 6px;
+  right: 7px;
+}
+
+.top-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* PAGE */
+
+.content {
+  max-width: 1500px;
+  margin: auto;
+  padding: 33px 38px 45px;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.overline {
+  color: #a77a24;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.page-heading h1 {
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 600;
+}
+
+.page-heading p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+.semester-tag {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 10px 15px;
+  border-radius: 7px;
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  white-space: nowrap;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 175px;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(215,162,51,.22), transparent 25%),
+    linear-gradient(110deg, #101f38 0%, #193453 65%, #263f60 100%);
+  border-radius: 12px;
+  padding: 29px 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 23px;
+  box-shadow: 0 9px 25px rgba(16,31,56,.13);
+}
+
+.hero::after {
+  content: "ABM";
+  position: absolute;
+  right: 60px;
+  top: -38px;
+  color: rgba(255,255,255,.035);
+  font-family: 'Playfair Display', serif;
+  font-size: 170px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-label {
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 11px;
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.hero p {
+  color: #b9c6d5;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 17px;
+  padding: 9px 15px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-button:hover { background: #edc36d; }
+
+.hero-mark {
+  width: 105px;
+  height: 105px;
+  border: 1px solid rgba(215,162,51,.5);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  position: relative;
+  z-index: 1;
+  margin-right: 40px;
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 19px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow);
+  transition: .2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(20,38,64,.08);
+}
+
+.stat-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: var(--gold-light);
+  color: #966b1e;
+  font-size: 18px;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+  background: #eaf0f8;
+  color: #355b8a;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.stat-number {
+  color: var(--navy);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+/* DASHBOARD COLUMNS */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(255px, .9fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 19px;
+}
+
+.panel-heading h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.panel-heading p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.count {
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: var(--gold-light);
+  color: #90661c;
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* SUBJECTS */
+
+.subject-list {
+  display: grid;
+  gap: 11px;
+}
+
+.subject {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  border: 1px solid #edf0f3;
+  border-radius: 8px;
+  transition: .2s;
+  min-width: 0;
+}
+
+.subject:hover {
+  border-color: #d7b56d;
+  background: #fffdf9;
+  transform: translateX(3px);
+}
+
+.subject-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #f0f3f7;
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.subject:nth-child(2) .subject-icon,
+.subject:nth-child(4) .subject-icon {
+  background: var(--gold-light);
+  color: #956c22;
+}
+
+.subject-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.subject-info h4 {
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.subject-info p {
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 4px;
+}
+
+.subject-status {
+  color: var(--green);
+  background: var(--green-bg);
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* PROFILE CARD */
+
+.profile-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.profile-cover {
+  height: 100px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(215,162,51,.22), transparent 30%),
+    linear-gradient(120deg, #101f38, #294769);
+  border-bottom: 3px solid var(--gold);
+}
+
+.profile-inner {
+  padding: 0 20px 21px;
+}
+
+.profile-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin-top: -38px;
+  background: var(--navy);
+  color: var(--gold);
+  border: 5px solid white;
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.profile-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--navy);
+  margin-top: 11px;
+}
+
+.profile-dept {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.active-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-bg);
+  color: var(--green);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 800;
+  margin-top: 13px;
+}
+
+.active-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+}
+
+.profile-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 19px 0;
+}
+
+.detail {
+  margin-bottom: 15px;
+}
+
+.detail:last-child { margin-bottom: 0; }
+
+.detail-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-size: 8px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* REGISTRAR */
+
+.registrar {
+  background: #fffdf8;
+  border: 1px solid #eee1c5;
+  border-radius: 9px;
+  padding: 18px;
+}
+
+.registrar-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 9px;
+}
+
+.registrar-icon { color: #a77a24; }
+
+.registrar p {
+  font-size: 10px;
+  color: #788395;
+  line-height: 1.9;
+}
+
+.registrar a {
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 19px 38px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 9px;
+  background: white;
+}
+
+.footer strong { color: var(--navy); }
+
+/* MOBILE */
+
+.mobile-menu {
+  display: none;
+  background: white;
+  border: 1px solid var(--border);
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.overlay {
+  display: none;
+}
+
+@media(max-width: 1100px) {
+  .sidebar { width: 230px; }
+  .main {
+    margin-left: 230px;
+    width: calc(100% - 230px);
+  }
+  .content { padding: 28px 24px; }
+  .topbar { padding: 0 24px; }
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(235px, .9fr);
+  }
+}
+
+@media(max-width: 800px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .overlay.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(9,20,36,.5);
+    z-index: 15;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .mobile-menu {
+    display: grid;
+    place-items: center;
+  }
+
+  .topbar { gap: 12px; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media(max-width: 560px) {
+  .topbar {
+    height: 65px;
+    padding: 0 15px;
+  }
+
+  .breadcrumb { display: none; }
+  .top-actions { margin-left: auto; gap: 9px; }
+  .search { width: 125px; }
+  .content { padding: 23px 14px 35px; }
+
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-heading h1 { font-size: 27px; }
+
+  .hero {
+    min-height: 170px;
+    padding: 23px 19px;
+  }
+
+  .hero h2 { font-size: 22px; }
+  .hero-mark { display: none; }
+  .hero::after { right: 0; }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card { padding: 14px; }
+  .panel { padding: 16px; }
+  .subject { padding: 11px 9px; gap: 9px; }
+  .subject-icon { width: 37px; height: 37px; }
+  .subject-info h4 { font-size: 10px; }
+  .subject-status { font-size: 7px; padding: 5px; }
+
+  .footer {
+    flex-direction: column;
+    padding: 17px 15px;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-name">ABM Modern Educational Global Online College</div>
+        <div class="brand-caption">Official Student Portal</div>
+      </div>
+    </div>
+
+    <div class="nav-label">Main Menu</div>
+
+    <nav class="nav">
+      <a href="#dashboard" class="active">
+        <span class="nav-icon">▦</span> Dashboard
+      </a>
+      <a href="#profile">
+        <span class="nav-icon">♙</span> My Profile
+      </a>
+      <a href="#courses">
+        <span class="nav-icon">▤</span> My Courses
+      </a>
+      <a href="#registrar">
+        <span class="nav-icon">▧</span> Academic Records
+      </a>
+    </nav>
+
+    <div class="nav-label">Institution</div>
+
+    <nav class="nav">
+      <a href="#registrar">
+        <span class="nav-icon">✦</span> Registrar Office
+      </a>
+      <a href="mailto:records@abm-media.me">
+        <span class="nav-icon">✉</span> Contact Support
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="support-box">
+        <h4>Need Assistance?</h4>
+        <p>Contact the institutional records office for enrollment and credential support.</p>
+        <a class="support-link" href="mailto:records@abm-media.me">
+          CONTACT REGISTRAR ↗
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        © 2026 ABM Global Online College<br>
+        Institutional Domain: abm-media.me
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="main" id="dashboard">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <div style="display:flex;align-items:center;gap:13px">
+        <button class="mobile-menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">
+          Home <span style="margin:0 7px">/</span>
+          <strong>Student Dashboard</strong>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <input class="search" type="search" id="courseSearch" placeholder="Search subjects...">
+        <button class="notification" aria-label="Notifications">♧</button>
+        <div class="top-avatar">MF</div>
+      </div>
+
+    </header>
+
+    <div class="content">
+
+      <!-- PAGE TITLE -->
+
+      <section class="page-heading">
+        <div>
+          <div class="overline">Student Portal / Overview</div>
+          <h1>Academic Dashboard</h1>
+          <p>Welcome back, Mohammad. Here is your academic overview.</p>
+        </div>
+
+        <div class="semester-tag">FALL SEMESTER · 2026</div>
+      </section>
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-content">
+          <div class="hero-label">ABM Global Online College</div>
+          <h2>Welcome, Mohammad Farhan</h2>
+          <p>Your academic journey continues. Explore your enrolled subjects and student records.</p>
+          <a href="#courses" class="hero-button">VIEW MY COURSES &nbsp; →</a>
+        </div>
+
+        <div class="hero-mark">A</div>
+
+      </section>
+
+      <!-- STATS -->
+
+      <section class="stats">
+
+        <div class="stat-card">
+          <div class="stat-icon">▤</div>
+          <div>
+            <div class="stat-number">05</div>
+            <div class="stat-label">Enrolled Subjects</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">♙</div>
+          <div>
+            <div class="stat-number">Grade 10</div>
+            <div class="stat-label">Academic Level</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">✓</div>
+          <div>
+            <div class="stat-number">Active</div>
+            <div class="stat-label">Enrollment Status</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- DASHBOARD GRID -->
+
+      <section class="dashboard-grid">
+
+        <!-- LEFT COLUMN -->
+
+        <div>
+
+          <section class="panel" id="courses">
+
+            <div class="panel-heading">
+              <div>
+                <h3>My Enrolled Subjects</h3>
+                <p>Your current core academic curriculum</p>
+              </div>
+              <span class="count">05 COURSES</span>
+            </div>
+
+            <div class="subject-list" id="subjectList">
+
+              <article class="subject">
+                <div class="subject-icon">AC</div>
+                <div class="subject-info">
+                  <h4>Accounting</h4>
+                  <p>Business Studies · ACC-101</p>
+                </div>
+                <span class="subject-status">ACTIVE</span>
+              </article>
+
+              <article class="subject">
+                <div class="subject-icon">BE</div>
+                <div class="subject-info">
+                  <h4>Business Entrepreneurship</h4>
+                  <p>Business Studies · BUS-102</p>
+                </div>
+                <span class="subject-status">ACTIVE</span>
+              </article>
+
+              <article class="subject">
+                <div class="subject-icon">CS</div>
+                <div class="subject-info">
+                  <h4>Computer Science</h4>
+                  <p>Information Technology · CSC-103</p>
+                </div>
+                <span class="subject-status">ACTIVE</span>
+              </article>
+
+              <article class="subject">
+                <div class="subject-icon">EN</div>
+                <div class="subject-info">
+                  <h4>English Language & Literature</h4>
+                  <p>Humanities & Language · ENG-104</p>
+                </div>
+                <span class="subject-status">ACTIVE</span>
+              </article>
+
+              <article class="subject">
+                <div class="subject-icon">BN</div>
+                <div class="subject-info">
+                  <h4>Bangla Language & Literature</h4>
+                  <p>Humanities & Language · BNG-105</p>
+                </div>
+                <span class="subject-status">ACTIVE</span>
+              </article>
+
+            </div>
+
+          </section>
+
+          <!-- REGISTRAR -->
+
+          <section class="registrar" id="registrar">
+
+            <h3 class="registrar-heading">
+              <span class="registrar-icon">✦</span>
+              Registrar & Verification Notice
+            </h3>
+
+            <p>
+              Mohammad Farhan's enrollment under the
+              <strong>Business Studies</strong> department for
+              <strong>Fall Semester 2026</strong> has been officially
+              validated by the institutional registrar office.
+              For credential audits, verification requests, or
+              official documentation support, contact
+              <a href="mailto:records@abm-media.me">records@abm-media.me</a>.
+            </p>
+
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+
+        <div>
+
+          <section class="panel profile-card" id="profile">
+
+            <div class="profile-cover"></div>
+
+            <div class="profile-inner">
+
+              <div class="profile-avatar">MF</div>
+
+              <h2 class="profile-name">Mohammad Farhan</h2>
+
+              <p class="profile-dept">Business Studies · Grade 10</p>
+
+              <div class="active-status">
+                <span class="active-dot"></span>
+                Active Enrolled Student
+              </div>
+
+              <div class="profile-divider"></div>
+
+              <div class="detail">
+                <div class="detail-label">Student ID / Code</div>
+                <div class="detail-value">GOC-2026-BUS10</div>
+              </div>
+
+              <div class="detail">
+                <div class="detail-label">Institutional Email</div>
+                <div class="detail-value">mohammad.farhan@abm-media.me</div>
+              </div>
+
+              <div class="detail">
+                <div class="detail-label">Department & Level</div>
+                <div class="detail-value">Business Studies (Grade 10)</div>
+              </div>
+
+              <div class="detail">
+                <div class="detail-label">Academic Cycle</div>
+                <div class="detail-value">Fall Semester 2026</div>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+      <span>© 2026 <strong>ABM Modern Educational Global Online College</strong>.</span>
+      <span>Institutional Domain: <strong>abm-media.me</strong></span>
+    </footer>
+
+  </main>
+
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+
+document.querySelectorAll('.sidebar .nav a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('.sidebar .nav a').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    if (this.hash) {
+      this.classList.add('active');
+    }
+
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+  });
+});
+
+document.getElementById('courseSearch').addEventListener('input', function() {
+  const query = this.value.toLowerCase().trim();
+
+  document.querySelectorAll('.subject').forEach(subject => {
+    subject.style.display = subject.textContent.toLowerCase().includes(query)
+      ? 'flex'
+      : 'none';
+  });
+});
+</script>
+
+</body>
+</html>
