@@ -307,17 +307,39 @@
       <h3>Student Portal Login</h3>
       <p>Log in with your official collegiate credentials (<code>@abm-media.me</code>).</p>
       
-      <form onsubmit="event.preventDefault(); alert('Authentication system is currently verifying institutional credentials.');">
-        <div class="form-group">
-          <label for="studentEmail">Institutional Student Email</label>
-          <input type="email" id="studentEmail" placeholder="yourname@abm-media.me" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="modal-btn">Access Student Dashboard</button>
-      </form>
+      <form id="studentLoginForm">
+  <div class="form-group">
+    <label for="studentEmail">Institutional Student Email</label>
+    <input
+      type="email"
+      id="studentEmail"
+      placeholder="yourname@abm-media.me"
+      autocomplete="username"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      autocomplete="current-password"
+      required
+    >
+  </div>
+
+  <p
+    id="loginMessage"
+    role="alert"
+    style="display:none; color:#B42318; font-size:0.88rem; margin-bottom:14px;"
+  ></p>
+
+  <button type="submit" class="modal-btn">
+    Access Student Dashboard
+  </button>
+</form>
       <div style="margin-top: 16px; text-align: center; font-size: 0.82rem; color: #7A86A0;">
         Trouble accessing? Contact <a href="mailto:support@abm-media.me" style="text-decoration: underline;">support@abm-media.me</a>
       </div>
@@ -374,20 +396,43 @@
     </div>
   </footer>
 
-  <script>
-    function openPortalModal() {
-      document.getElementById('portalModal').style.display = 'flex';
-    }
-    function closePortalModal() {
-      document.getElementById('portalModal').style.display = 'none';
-    }
-    window.onclick = function(event) {
-      const modal = document.getElementById('portalModal');
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    }
-  </script>
+  
+<script>
+  function openPortalModal() {
+    document.getElementById('portalModal').style.display = 'flex';
+  }
 
+  function closePortalModal() {
+    document.getElementById('portalModal').style.display = 'none';
+  }
+
+  document.getElementById('studentLoginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('studentEmail').value.trim().toLowerCase();
+    const password = document.getElementById('password').value;
+    const message = document.getElementById('loginMessage');
+
+    const validEmail = 'mohammad.farhan@abm-media.me';
+    const validPassword = '456##321';
+
+    if (email === validEmail && password === validPassword) {
+      message.style.display = 'none';
+      window.location.href = 'student-dashboard.html';
+      return;
+    }
+
+    message.textContent = 'Invalid institutional email or password. Please try again.';
+    message.style.display = 'block';
+  });
+
+  window.addEventListener('click', function(event) {
+    const modal = document.getElementById('portalModal');
+
+    if (event.target === modal) {
+      closePortalModal();
+    }
+  });
+</script>
 </body>
 </html>
