@@ -1,438 +1,734 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABM Modern Educational Global Online College | Official Institutional Portal</title>
-  <meta name="description" content="ABM Modern Educational Global Online College - Official academic portal for collegiate degrees, distance education, academic calendar, and registrar verification.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #0B1F3A;
-      --secondary: #102A4C;
-      --accent: #D7A233;
-      --accent-hover: #b8861b;
-      --bg-light: #F4F6F9;
-      --card-bg: #FFFFFF;
-      --text-dark: #1B2430;
-      --text-muted: #5B6472;
-      --border: #DCE2EA;
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="ABM Modern Educational Global Online College - Official academic portal for collegiate degrees, distance education, academic calendar, and registrar verification.">
+    <meta name="author" content="ABM Modern Educational Global Online College">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>ABM Modern Educational Global Online College | Official Institutional Portal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+	<style>
+    /* Institutional Information */
+    .institution-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #D7A233;
+        margin-top: 12px;
+        overflow-wrap: anywhere;
     }
-
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Work Sans', system-ui, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; margin: 0; }
-    
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    /* Top Bar */
-    .top-bar { background: var(--primary); padding: 8px 0; font-size: 0.85rem; color: #C9D4E3; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .top-bar .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .top-links { display: flex; gap: 20px; align-items: center; }
-    .top-links a:hover { color: var(--accent); }
-
-    /* Navbar */
-    header { background: var(--secondary); padding: 16px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .brand-logo { width: 44px; height: 44px; border-radius: 8px; background: var(--accent); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; }
-    .brand-text h2 { font-size: 1.35rem; color: #FFFFFF; letter-spacing: -0.5px; }
-    .brand-text p { margin: 0; font-size: 0.75rem; color: #9EAFC6; text-transform: uppercase; letter-spacing: 1px; }
-
-    nav { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    nav a { color: #D7DEE8; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-    nav a:hover { color: #FFFFFF; }
-    .btn-portal { background: var(--accent); color: var(--primary); padding: 9px 20px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: 0.2s; }
-    .btn-portal:hover { background: var(--accent-hover); }
-
-    /* Hero */
-    .hero { background: linear-gradient(180deg, #E6EFF9 0%, var(--bg-light) 100%); padding: 70px 0 50px; }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
-    @media(max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
-    .hero-badge { display: inline-block; background: #E1EAF4; color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; border: 1px solid #CAD8E8; }
-    .hero h1 { font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.2rem); color: var(--primary); line-height: 1.2; margin-bottom: 20px; }
-    .hero p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 30px; }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary { background: var(--primary); color: #FFFFFF; padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 0.98rem; }
-    .btn-outline { border: 2px solid var(--primary); color: var(--primary); padding: 12px 24px; border-radius: 6px; font-weight: 600; font-size: 0.98rem; }
-
-    /* Session Info Card */
-    .session-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; box-shadow: 0 10px 24px rgba(0,0,0,0.04); }
-    .session-card h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
-    .session-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #EEF2F6; font-size: 0.92rem; }
-    .session-item span:first-child { color: var(--text-muted); }
-    .session-item span:last-child { font-weight: 600; color: var(--primary); }
-
-    /* Section Styles */
-    section { padding: 70px 0; }
-    .section-title { text-align: center; max-width: 760px; margin: 0 auto 50px; }
-    .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
-    .section-title p { color: var(--text-muted); font-size: 1.02rem; }
-
-    /* Grid Cards */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 28px; border-top: 4px solid var(--primary); }
-    .card-code { font-size: 0.78rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
-    .card h3 { font-size: 1.25rem; color: var(--primary); margin: 8px 0 12px; }
-    .card p { color: var(--text-muted); font-size: 0.94rem; margin: 0 0 16px; }
-    .card-meta { font-size: 0.85rem; color: #7A86A0; border-top: 1px solid #EEF2F6; padding-top: 12px; }
-
-    /* Academic Calendar Table */
-    .calendar-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-    .calendar-table th, .calendar-table td { padding: 16px 20px; text-align: left; font-size: 0.94rem; }
-    .calendar-table th { background: var(--primary); color: #FFFFFF; font-weight: 600; }
-    .calendar-table tr:nth-child(even) { background: #F8FAFC; }
-    .calendar-table tr:not(:last-child) td { border-bottom: 1px solid #EEF2F6; }
-    .badge-term { background: #E1F0E5; color: #1E6B37; padding: 4px 10px; border-radius: 14px; font-size: 0.82rem; font-weight: 600; }
-
-    /* Registrar / Verification Box */
-    .verify-box { background: #FFFFFF; border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    @media(max-width: 768px) { .verify-box { grid-template-columns: 1fr; } }
-    .verify-col h4 { font-size: 1.15rem; color: var(--primary); margin-bottom: 12px; }
-    .verify-col p { font-size: 0.92rem; color: var(--text-muted); margin: 0 0 12px; }
-
-    /* Modal for Student Portal */
-    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 31, 58, 0.65); backdrop-filter: blur(4px); z-index: 2000; justify-content: center; align-items: center; }
-    .modal { background: #FFFFFF; border-radius: 12px; max-width: 440px; width: 90%; padding: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; }
-    .modal-close { position: absolute; top: 16px; right: 16px; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
-    .modal h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 8px; }
-    .modal p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
-    .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; }
-    .modal-btn { width: 100%; padding: 12px; background: var(--primary); color: #FFFFFF; border: none; border-radius: 6px; font-weight: 600; font-size: 0.98rem; cursor: pointer; }
-
-    /* Footer */
-    footer { background: #071527; color: #8F9CAE; padding: 60px 0 30px; font-size: 0.9rem; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
-    @media(max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-    @media(max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
-    .footer-col h4 { color: #FFFFFF; font-size: 1.05rem; margin-bottom: 18px; }
-    .footer-col ul { list-style: none; padding: 0; margin: 0; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a:hover { color: #FFFFFF; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 0.82rem; }
-  </style>
-</head>
-<body>
-
-  <!-- Institutional Utility Bar -->
-  <div class="top-bar">
-    <div class="container inner">
-      <div>Official Academic Domain: <strong>abm-media.me</strong> | Institutional Code: <strong>GOC-2026</strong></div>
-      <div class="top-links">
-        <a href="mailto:registrar@abm-media.me">Registrar Office</a>
-        <a href="mailto:records@abm-media.me">Student Records Verification</a>
-        <a href="#calendar">Academic Calendar</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Primary Navigation -->
-  <header>
-    <div class="container nav-inner">
-      <a href="#" class="brand">
-        <div class="brand-logo">GOC</div>
-        <div class="brand-text">
-          <h2>ABM Modern Educational Global Online College</h2>
-          <p>Distance &amp; Higher Education Campus</p>
-        </div>
-      </a>
-      <nav>
-        <a href="#about">About College</a>
-        <a href="#programs">Programs</a>
-        <a href="#calendar">Term Calendar</a>
-        <a href="#verification">Verification &amp; Records</a>
-        <button class="btn-portal" onclick="openPortalModal()">Student Portal Login</button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-badge">Accredited Digital Collegiate Programs</div>
-        <h1>Empowering Modern Higher Education Across the Globe</h1>
-        <p>ABM Modern Educational Global Online College provides accredited modular certifications, collegiate credits, and higher secondary technical instruction through interactive digital coursework, dedicated academic advisement, and direct student record administration.</p>
-        <div class="hero-actions">
-          <a href="#programs" class="btn-primary">View Course Offerings</a>
-          <a href="#verification" class="btn-outline">Student Records &amp; Verification</a>
-        </div>
-      </div>
-      <div>
-        <div class="session-card">
-          <h3>Current Academic Session (2026–2027)</h3>
-          <div class="session-item">
-            <span>Academic Cycle:</span>
-            <span>Fall Semester 2026</span>
-          </div>
-          <div class="session-item">
-            <span>Instruction Status:</span>
-            <span style="color: #2F6F4F;">● Active &amp; Enrolling</span>
-          </div>
-          <div class="session-item">
-            <span>Official Student Domain:</span>
-            <span>@abm-media.me</span>
-          </div>
-          <div class="session-item">
-            <span>Enrollment Verification:</span>
-            <span>Registrar Validated</span>
-          </div>
-          <div class="session-item">
-            <span>Administrative Inquiries:</span>
-            <span>info@abm-media.me</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Programs -->
-  <section id="programs">
-    <div class="container">
-      <div class="section-title">
-        <h2>Departmental Programs &amp; Curricula</h2>
-        <p>All enrolled students are assigned verifiable institutional course codes and credit assessments maintained within the collegiate registrar registry.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-code">Dept. of Computer Science | CS-301</div>
-          <h3>Applied Computing &amp; Systems Architecture</h3>
-          <p>Comprehensive curriculum covering algorithmic problem solving, web and cloud architecture, relational database management, and network security.</p>
-          <div class="card-meta">Credits: 4.0 | Level: Undergraduate / Diploma</div>
-        </div>
-
-        <div class="card">
-          <div class="card-code">Dept. of Business Studies | BUS-204</div>
-          <h3>Managerial Economics &amp; Corporate Finance</h3>
-          <p>Practical grounding in fiscal management, taxation compliance frameworks, corporate financial accounting, and modern organizational data systems.</p>
-          <div class="card-meta">Credits: 3.0 | Level: Collegiate Certificate</div>
-        </div>
-
-        <div class="card">
-          <div class="card-code">Dept. of Mathematics | MAT-210</div>
-          <h3>Discrete Mathematics &amp; Statistical Modeling</h3>
-          <p>Mathematical foundations for technology and empirical sciences, focusing on discrete logic, probabilistic inference, and quantitative analytics.</p>
-          <div class="card-meta">Credits: 4.0 | Level: Undergraduate / Prep</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Academic Calendar (Critical for SheerID inspection) -->
-  <section id="calendar" style="background: #EBF1F7;">
-    <div class="container">
-      <div class="section-title">
-        <h2>Academic Calendar — 2026 / 2027</h2>
-        <p>Official schedule of terms, registration windows, and grade validation dates for student verification audit.</p>
-      </div>
-
-      <table class="calendar-table">
-        <thead>
-          <tr>
-            <th>Academic Term</th>
-            <th>Commencement Date</th>
-            <th>Final Examinations</th>
-            <th>Transcript &amp; Record Audit</th>
-            <th>Session Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Fall Semester 2026</strong></td>
-            <td>September 1, 2026</td>
-            <td>December 18, 2026</td>
-            <td>January 10, 2027</td>
-            <td><span class="badge-term">In Session</span></td>
-          </tr>
-          <tr>
-            <td><strong>Spring Semester 2027</strong></td>
-            <td>January 18, 2027</td>
-            <td>May 14, 2027</td>
-            <td>June 2, 2027</td>
-            <td><span>Scheduled</span></td>
-          </tr>
-          <tr>
-            <td><strong>Summer Session 2027</strong></td>
-            <td>June 7, 2027</td>
-            <td>August 15, 2027</td>
-            <td>August 30, 2027</td>
-            <td><span>Upcoming</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Verification & Registrar Section -->
-  <section id="verification">
-    <div class="container">
-      <div class="section-title">
-        <h2>Office of the Registrar &amp; Verification Services</h2>
-        <p>ABM Modern Educational Global Online College maintains dedicated administrative points of contact for institutional credential verification, transcript checks, and student eligibility queries.</p>
-      </div>
-
-      <div class="verify-box">
-        <div class="verify-col">
-          <h4>Enrollment &amp; Credential Verification</h4>
-          <p>Third-party verification platforms (including SheerID, StudentBeans, and academic partners) may direct automated and manual enrollment inquiries to the Records Desk.</p>
-          <p><strong>Direct Inquiries:</strong> <a href="mailto:records@abm-media.me" style="color: var(--primary); text-decoration: underline;">records@abm-media.me</a></p>
-          <p><strong>Registrar Office:</strong> <a href="mailto:registrar@abm-media.me" style="color: var(--primary); text-decoration: underline;">registrar@abm-media.me</a></p>
-          <p style="font-size: 0.85rem; color: #7A86A0;">Inquiries submitted via institutional email are prioritized within 24–48 operational hours.</p>
-        </div>
-
-        <div class="verify-col">
-          <h4>Student ID Card &amp; Proof of Enrollment Standards</h4>
-          <p>Official student documentation issued by ABM Modern Educational Global Online College includes:</p>
-          <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.8;">
-            <li>Full legal student name &amp; active student identification number.</li>
-            <li>Designated institutional email address format: <code>username@abm-media.me</code>.</li>
-            <li>Current validated semester registration badge (Fall 2026 / Spring 2027).</li>
-            <li>Institutional registry signature from the Office of Academic Affairs.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Student Portal Modal -->
-  <div class="modal-backdrop" id="portalModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closePortalModal()">&times;</button>
-      <h3>Student Portal Login</h3>
-      <p>Log in with your official collegiate credentials (<code>@abm-media.me</code>).</p>
-      
-      <form id="studentLoginForm">
-  <div class="form-group">
-    <label for="studentEmail">Institutional Student Email</label>
-    <input
-      type="email"
-      id="studentEmail"
-      placeholder="yourname@abm-media.me"
-      autocomplete="username"
-      required
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      type="password"
-      id="password"
-      placeholder="Enter your password"
-      autocomplete="current-password"
-      required
-    >
-  </div>
-
-  <p
-    id="loginMessage"
-    role="alert"
-    style="display:none; color:#B42318; font-size:0.88rem; margin-bottom:14px;"
-  ></p>
-
-  <button type="submit" class="modal-btn">
-    Access Student Dashboard
-  </button>
-</form>
-      <div style="margin-top: 16px; text-align: center; font-size: 0.82rem; color: #7A86A0;">
-        Trouble accessing? Contact <a href="mailto:support@abm-media.me" style="text-decoration: underline;">support@abm-media.me</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>ABM Modern Educational Global Online College</h4>
-          <p>ABM Modern Educational Global Online College is an open-access collegiate institution providing structured technical, business, and higher-secondary distance coursework to students worldwide.</p>
-          <p style="font-size: 0.85rem; color: #6D7B90;">Headquarters &amp; Academic Administration:<br>
-          GOC Educational Complex, Academic District, South Avenue<br>
-          Institutional Registrar Registry | Web: abm-media.me</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Academic Links</h4>
-          <ul>
-            <li><a href="#about">About the College</a></li>
-            <li><a href="#programs">Course Catalog</a></li>
-            <li><a href="#calendar">Term Calendar 2026–2027</a></li>
-            <li><a href="#verification">Registrar Verification</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Departments</h4>
-          <ul>
-            <li><a href="#programs">Computer Science &amp; IT</a></li>
-            <li><a href="#programs">Business &amp; Finance</a></li>
-            <li><a href="#programs">Applied Mathematics</a></li>
-            <li><a href="#programs">Social Sciences &amp; Arts</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Administrative Contacts</h4>
-          <ul>
-            <li>Admissions: <a href="mailto:admission@abm-media.me">admission@abm-media.me</a></li>
-            <li>Registrar: <a href="mailto:registrar@abm-media.me">registrar@abm-media.me</a></li>
-            <li>Student Records: <a href="mailto:records@abm-media.me">records@abm-media.me</a></li>
-            <li>General Desk: <a href="mailto:info@abm-media.me">info@abm-media.me</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>&copy; 2026 ABM Modern Educational Global Online College (GOC). All rights reserved. Registered Educational Provider.</div>
-        <div>Domain: <strong>abm-media.me</strong> | System Status: All Systems Operational</div>
-      </div>
-    </div>
-  </footer>
-
+    </style>
   
+  </head>
+
+ <body>
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p>
+			<em>ABM Modern Educational Global Online College</em> 
+			— Official Institutional Global Site</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li>
+			  <a href="mailto:registrar@abm-media.me"
+			  aria-label="Contact Registrar">
+			  <i class="fa fa-envelope"></i>
+			  </a>
+			  </li>
+              <li>
+              <a href="index.html" aria-label="Institutional Home">
+              <i class="fa fa-home"></i>
+              </a>
+			  </li>
+              <li>
+              <a href="student-portal.html" aria-label="Student Portal">
+              <i class="fa fa-user"></i>
+              </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo">
+                          ABM Global College
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- Navigation Start -->
+                      <ul class="nav">
+                        <li>
+                            <a href="index.html" class="active">Home</a>
+                        </li>
+
+                        <li class="scroll-to-section">
+                            <a href="#about">About</a>
+                        </li>
+
+                        <li class="scroll-to-section">
+                            <a href="#programs">Programs</a>
+                        </li>
+
+                        <li class="scroll-to-section">
+                            <a href="#calendar">Academic Calendar</a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Academic Services</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#registrar">Registrar Office</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:records@abm-media.me">Academic Records</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:registrar@abm-media.me">Contact Registrar</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="student-portal.html">Student Portal</a>
+                        </li>
+                    </ul>
+                    <!-- Navigation End -->
+
+                    <a class="menu-trigger">
+                        <span>Menu</span>
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ***** Main Banner Area Start ***** -->
+<section class="section main-banner" id="top" data-section="section1">
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="assets/images/course-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="caption">
+
+                        <h6>ABM Modern Educational Global Online College</h6>
+
+                        <h2>Empowering Education Beyond Boundaries</h2>
+
+                        <p>
+                            Welcome to ABM Modern Educational Global Online College.
+                            Explore our academic programs, discover learning
+                            opportunities, and access institutional resources
+                            through our official academic website.
+                        </p>
+
+                        <p>
+                            <strong>Current Academic Session:</strong>
+                            Fall Semester 2026
+                            <br>
+                            <strong>Academic Year:</strong>
+                            2026–2027
+                        </p>
+
+                        <div class="main-button-red">
+                            <div>
+                                <a href="student-portal.html">
+                                    Student Portal
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- ***** Main Banner Area End ***** -->
+<!-- ***** Institutional Services Start ***** -->
+<section class="services" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-service-item owl-carousel">
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-01.png" alt="Academic Programs">
+                        </div>
+                        <div class="down-content">
+                            <h4>Academic Programs</h4>
+                            <p>Explore academic programs designed around structured learning and subject-based education.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-02.png" alt="Student Portal">
+                        </div>
+                        <div class="down-content">
+                            <h4>Student Portal</h4>
+                            <p>Access your academic dashboard and institutional student resources.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-03.png" alt="Academic Records">
+                        </div>
+                        <div class="down-content">
+                            <h4>Academic Records</h4>
+                            <p>Access academic record information and related student documentation.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-02.png" alt="Academic Calendar">
+                        </div>
+                        <div class="down-content">
+                            <h4>Academic Calendar</h4>
+                            <p>Review semester dates, examination schedules, and academic milestones.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-03.png" alt="Registrar Office">
+                        </div>
+                        <div class="down-content">
+                            <h4>Registrar Office</h4>
+                            <p>Contact the institutional registrar for academic and administrative inquiries.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Institutional Services End ***** -->
+
+
+<!-- ***** Academic Calendar Start ***** -->
+<section class="upcoming-meetings" id="calendar">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Academic Calendar</h2>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="categories">
+                    <h4>Academic Sessions</h4>
+
+                    <ul>
+                        <li><a href="#fall-2026">Fall Semester 2026</a></li>
+                        <li><a href="#spring-2027">Spring Semester 2027</a></li>
+                        <li><a href="#summer-2027">Summer Session 2027</a></li>
+                    </ul>
+
+                    <div class="main-button-red">
+                        <a href="mailto:records@abm-media.me">Academic Records</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="meeting-item" id="fall-2026">
+                    <div class="down-content">
+                        <div class="date">
+                            <h6>2026 <span>Fall</span></h6>
+                        </div>
+                        <h4>Fall Semester 2026</h4>
+                        <p>
+                            <strong>Semester Begins:</strong> September 1, 2026<br>
+                            <strong>Final Examinations:</strong> December 18, 2026<br>
+                            <strong>Transcript Audit:</strong> January 10, 2027<br>
+                            <strong>Status:</strong> In Session
+                        </p>
+                    </div>
+                </div>
+
+                <div class="meeting-item" id="spring-2027">
+                    <div class="down-content">
+                        <div class="date">
+                            <h6>2027 <span>Spring</span></h6>
+                        </div>
+                        <h4>Spring Semester 2027</h4>
+                        <p>
+                            <strong>Semester Begins:</strong> January 18, 2027<br>
+                            <strong>Final Examinations:</strong> May 14, 2027<br>
+                            <strong>Transcript Audit:</strong> June 2, 2027<br>
+                            <strong>Status:</strong> Scheduled
+                        </p>
+                    </div>
+                </div>
+
+                <div class="meeting-item" id="summer-2027">
+                    <div class="down-content">
+                        <div class="date">
+                            <h6>2027 <span>Summer</span></h6>
+                        </div>
+                        <h4>Summer Session 2027</h4>
+                        <p>
+                            <strong>Session Begins:</strong> June 7, 2027<br>
+                            <strong>Final Examinations:</strong> August 15, 2027<br>
+                            <strong>Transcript Audit:</strong> August 30, 2027<br>
+                            <strong>Status:</strong> Upcoming
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Academic Calendar End ***** -->
+
+
+<!-- ***** Academic Information Start ***** -->
+<section class="apply-now" id="registrar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 align-self-center">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>STUDENT PORTAL ACCESS</h3>
+                            <p>
+                                Access your institutional student dashboard
+                                to review your academic information, courses,
+                                and available student documents.
+                            </p>
+
+                            <div class="main-button-red">
+                                <a href="student-portal.html">Enter Student Portal</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>REGISTRAR OFFICE</h3>
+                            <p>
+                                For institutional records, academic documentation,
+                                and registrar-related inquiries, contact the
+                                institutional registrar.
+                            </p>
+
+                            <div class="main-button-yellow">
+                                <a href="mailto:registrar@abm-media.me">Contact Registrar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="accordions is-first-expanded">
+
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>About the Institution</span>
+                            <span class="icon">
+                                <i class="icon fa fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>
+                                    ABM Modern Educational Global Online College
+                                    provides an institutional platform for
+                                    academic information, student services,
+                                    and educational program resources.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>Academic Programs</span>
+                            <span class="icon">
+                                <i class="icon fa fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>
+                                    Explore the available academic program
+                                    information, course titles, subject codes,
+                                    and credit details in the Programs section
+                                    of this website.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>Student Academic Records</span>
+                            <span class="icon">
+                                <i class="icon fa fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>
+                                    Students can access their available
+                                    academic information and documentation
+                                    through the Student Portal.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="accordion last-accordion">
+                        <div class="accordion-head">
+                            <span>Registrar and Records Support</span>
+                            <span class="icon">
+                                <i class="icon fa fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>
+                                    For academic records and institutional
+                                    inquiries, contact:
+                                    <a href="mailto:records@abm-media.me">
+                                        records@abm-media.me
+                                    </a>
+                                    or
+                                    <a href="mailto:registrar@abm-media.me">
+                                        registrar@abm-media.me
+                                    </a>.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ***** Academic Information End ***** -->
+
+
+<!-- ***** Academic Programs Start ***** -->
+<section class="our-courses" id="programs">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Academic Programs</h2>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="owl-courses-item owl-carousel">
+
+                    <div class="item">
+                        <img src="assets/images/course-01.jpg" alt="Applied Computing and Systems Architecture">
+                        <div class="down-content">
+                            <h4>Applied Computing &amp; Systems Architecture</h4>
+                            <p>Course Code: CS-301</p>
+                            <p>Credits: 4.0</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/images/course-02.jpg" alt="Managerial Economics and Corporate Finance">
+                        <div class="down-content">
+                            <h4>Managerial Economics &amp; Corporate Finance</h4>
+                            <p>Course Code: BUS-204</p>
+                            <p>Credits: 3.0</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/images/course-03.jpg" alt="Discrete Mathematics and Statistical Modeling">
+                        <div class="down-content">
+                            <h4>Discrete Mathematics &amp; Statistical Modeling</h4>
+                            <p>Course Code: MAT-210</p>
+                            <p>Credits: 4.0</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Academic Programs End ***** -->
+
+
+<!-- ***** Institutional Information Start ***** -->
+<section class="our-facts">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <h2>Institutional Information</h2>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="count-area-content">
+                            <div class="count-title">Academic Year</div>
+                            <div class="institution-value">2026–2027</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="count-area-content">
+                            <div class="count-title">Session</div>
+                            <div class="institution-value">Fall 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="count-area-content">
+                            <div class="count-title">Academic Programs</div>
+                            <div class="institution-value">03</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="count-area-content">
+                            <div class="count-title">Institutional Code</div>
+                            <div class="institution-value">GOC-2026</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 align-self-center">
+                <div class="video">
+                    <a href="student-portal.html">
+                        <img src="assets/images/play-icon.png" alt="Open Student Portal">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ***** Institutional Information End ***** -->
+
+
+<!-- ***** Contact Section Start ***** -->
+<section class="contact-us" id="contact">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9 align-self-center">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="section-heading">
+                            <h2>Contact the Institution</h2>
+                            <p>
+                                For institutional inquiries, academic records,
+                                and registrar assistance, please use the
+                                official contact addresses.
+                            </p>
+                        </div>
+
+                        <div class="item">
+                            <h4>Registrar Office</h4>
+                            <p>
+                                <a href="mailto:registrar@abm-media.me">
+                                    registrar@abm-media.me
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="item">
+                            <h4>Academic Records</h4>
+                            <p>
+                                <a href="mailto:records@abm-media.me">
+                                    records@abm-media.me
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="right-info">
+                    <ul>
+                        <li>
+                            <h6>Institution</h6>
+                            <span>ABM Modern Educational Global Online College</span>
+                        </li>
+
+                        <li>
+                            <h6>Registrar Email</h6>
+                            <span>registrar@abm-media.me</span>
+                        </li>
+
+                        <li>
+                            <h6>Records Email</h6>
+                            <span>records@abm-media.me</span>
+                        </li>
+
+                        <li>
+                            <h6>Institutional Website</h6>
+                            <span>ogs.abm-media.me</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>
+            Copyright &copy; 2026 ABM Modern Educational Global Online College.
+            All Rights Reserved.
+            <br>
+            Official Institutional Website
+            <br>
+            <a href="index.html">Home</a> |
+            <a href="student-portal.html">Student Portal</a> |
+            <a href="mailto:registrar@abm-media.me">Registrar</a>
+        </p>
+    </div>
+
+</section>
+  <!-- ***** Contact Section End ***** -->
+<!-- Scripts Start -->
+
+<!-- jQuery -->
+<script src="vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Template Dependencies -->
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/tabs.js"></script>
+<script src="assets/js/video.js"></script>
+<script src="assets/js/slick-slider.js"></script>
+
+<!-- Template Main JavaScript -->
+<script src="assets/js/custom.js"></script>
+
+<!-- Institutional Website Navigation -->
 <script>
-  function openPortalModal() {
-    document.getElementById('portalModal').style.display = 'flex';
-  }
+    $(document).ready(function () {
 
-  function closePortalModal() {
-    document.getElementById('portalModal').style.display = 'none';
-  }
+        // Handle internal section navigation.
+        $('a[href^="#"]').on('click', function (event) {
+            var targetId = $(this).attr('href');
 
-  document.getElementById('studentLoginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+            if (!targetId || targetId === '#') {
+                return;
+            }
 
-    const email = document.getElementById('studentEmail').value.trim().toLowerCase();
-    const password = document.getElementById('password').value;
-    const message = document.getElementById('loginMessage');
+            var targetSection = $(targetId);
 
-    const validEmail = 'mohammad.farhan@abm-media.me';
-    const validPassword = '456##321';
+            if (targetSection.length) {
+                event.preventDefault();
 
-    if (email === validEmail && password === validPassword) {
-      message.style.display = 'none';
-      window.location.href = 'student-portal.html';
-      return;
-    }
+                $('html, body').animate({
+                    scrollTop: targetSection.offset().top - 80
+                }, 700);
 
-    message.textContent = 'Invalid institutional email or password. Please try again.';
-    message.style.display = 'block';
-  });
+                $('.nav li').removeClass('active');
+                $(this).closest('li').addClass('active');
+            }
+        });
 
-  window.addEventListener('click', function(event) {
-    const modal = document.getElementById('portalModal');
+        // Update active navigation item while scrolling.
+        function updateActiveNavigation() {
+            var scrollPosition = $(window).scrollTop() + 100;
 
-    if (event.target === modal) {
-      closePortalModal();
-    }
-  });
+            $('section[id]').each(function () {
+                var currentSection = $(this);
+                var sectionTop = currentSection.offset().top;
+                var sectionBottom = sectionTop + currentSection.outerHeight();
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    var sectionId = currentSection.attr('id');
+
+                    $('.nav li').removeClass('active');
+
+                    $('.nav a[href="#' + sectionId + '"]')
+                        .closest('li')
+                        .addClass('active');
+                }
+            });
+        }
+
+        $(window).on('scroll', updateActiveNavigation);
+
+        // Close mobile navigation after selecting a section.
+        $('.nav a[href^="#"]').on('click', function () {
+            $('.menu-trigger').removeClass('active');
+            $('.nav').removeClass('active');
+        });
+
+        updateActiveNavigation();
+
+    });
 </script>
+<!-- Scripts End -->
 </body>
 </html>
