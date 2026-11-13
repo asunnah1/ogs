@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,435 +13,115 @@
 
 <style>
 :root{
---navy:#101f38;
---navy2:#192e4e;
---navy3:#243d60;
---gold:#d7a233;
---gold-light:#f6edda;
---bg:#f4f6f9;
---white:#fff;
---text:#1c293b;
---muted:#8a96a6;
---border:#e9edf2;
---green:#27845a;
---green-bg:#eaf5ee;
+--navy:#101f38;--navy2:#192e4e;--navy3:#243d60;--gold:#d7a233;
+--gold-light:#f6edda;--bg:#f4f6f9;--white:#fff;--text:#1c293b;
+--muted:#8a96a6;--border:#e9edf2;--green:#27845a;--green-bg:#eaf5ee;
 --shadow:0 8px 30px rgba(20,38,64,.045)
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:'DM Sans',sans-serif;
-background:var(--bg);
-color:var(--text);
-min-height:100vh;
-font-weight:500
-}
-
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-weight:500}
 .content p,.sidebar p,.detail-value,.breadcrumb,.subject-info p{font-weight:600}
 .page-heading h1,.hero h2,.panel-heading h3,.profile-name,.registrar-heading{font-weight:700}
 .stat-label,.subject-info p,.profile-dept,.detail-label{font-weight:600}
-button,a{font:inherit}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer}
-
+button,a{font:inherit}a{text-decoration:none;color:inherit}button{cursor:pointer}
 .app{min-height:100vh;display:flex}
-
-.sidebar{
-width:260px;background:var(--navy);color:white;
-position:fixed;inset:0 auto 0 0;z-index:20;
-display:flex;flex-direction:column;
-padding:27px 19px 20px;overflow-y:auto
-}
-
-.brand{
-display:flex;align-items:center;gap:12px;
-padding:0 9px 29px;
-border-bottom:1px solid rgba(255,255,255,.10)
-}
-
-.brand-logo{
-width:43px;height:43px;
-border:1px solid rgba(215,162,51,.65);
-background:rgba(215,162,51,.09);
-border-radius:11px;display:grid;place-items:center;
-color:var(--gold);
-font-family:'Playfair Display',serif;
-font-size:25px;font-weight:700;flex-shrink:0
-}
-
-.brand-name{
-font-family:'Playfair Display',serif;
-font-size:14px;line-height:1.4;font-weight:600
-}
-
-.brand-caption{
-color:#9cacc1;font-size:8px;letter-spacing:1.4px;
-text-transform:uppercase;margin-top:4px
-}
-
-.nav-label{
-color:#8293aa;font-size:9px;font-weight:800;
-letter-spacing:1.8px;text-transform:uppercase;
-padding:28px 11px 12px
-}
-
+.sidebar{width:260px;background:var(--navy);color:white;position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;padding:27px 19px 20px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:12px;padding:0 9px 29px;border-bottom:1px solid rgba(255,255,255,.10)}
+.brand-logo{width:43px;height:43px;border:1px solid rgba(215,162,51,.65);background:rgba(215,162,51,.09);border-radius:11px;display:grid;place-items:center;color:var(--gold);font-family:'Playfair Display',serif;font-size:25px;font-weight:700;flex-shrink:0}
+.brand-name{font-family:'Playfair Display',serif;font-size:14px;line-height:1.4;font-weight:600}
+.brand-caption{color:#9cacc1;font-size:8px;letter-spacing:1.4px;text-transform:uppercase;margin-top:4px}
+.nav-label{color:#8293aa;font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;padding:28px 11px 12px}
 .nav{display:grid;gap:6px}
-
-.nav>a,.nav-group summary{
-display:flex;align-items:center;gap:13px;
-color:#b1bdcd;font-size:12px;font-weight:600;
-padding:12px 13px;border-radius:8px;
-transition:.2s;cursor:pointer;list-style:none
-}
-
-.nav>a:hover,.nav-group summary:hover{
-background:rgba(255,255,255,.07);color:white
-}
-
-.nav>a.active{
-background:linear-gradient(100deg,#d7a233,#e6bc68);
-color:#15243b;
-box-shadow:0 5px 15px rgba(215,162,51,.17)
-}
-
-.nav-icon{
-width:20px;height:20px;display:grid;
-place-items:center;font-size:16px;flex-shrink:0
-}
-
-.nav-group summary::-webkit-details-marker{display:none}
-.nav-group summary::marker{content:""}
-.nav-chevron{margin-left:auto;transition:transform .2s}
-.nav-group[open] .nav-chevron{transform:rotate(180deg)}
-
+.nav>a,.nav-group summary{display:flex;align-items:center;gap:13px;color:#b1bdcd;font-size:12px;font-weight:600;padding:12px 13px;border-radius:8px;transition:.2s;cursor:pointer;list-style:none}
+.nav>a:hover,.nav-group summary:hover{background:rgba(255,255,255,.07);color:white}
+.nav>a.active{background:linear-gradient(100deg,#d7a233,#e6bc68);color:#15243b;box-shadow:0 5px 15px rgba(215,162,51,.17)}
+.nav-icon{width:20px;height:20px;display:grid;place-items:center;font-size:16px;flex-shrink:0}
+.nav-group summary::-webkit-details-marker{display:none}.nav-group summary::marker{content:""}
+.nav-chevron{margin-left:auto;transition:transform .2s}.nav-group[open] .nav-chevron{transform:rotate(180deg)}
 .nav-submenu{display:grid;gap:3px;padding:4px 0 5px}
-
-.nav-submenu a{
-display:flex;align-items:center;gap:10px;
-color:#b1bdcd;font-size:10px;font-weight:600;
-padding:10px 10px 10px 43px;border-radius:7px
-}
-
-.nav-submenu a:hover{
-background:rgba(255,255,255,.07);color:var(--gold)
-}
-
+.nav-submenu a{display:flex;align-items:center;gap:10px;color:#b1bdcd;font-size:10px;font-weight:600;padding:10px 10px 10px 43px;border-radius:7px}
+.nav-submenu a:hover{background:rgba(255,255,255,.07);color:var(--gold)}
 .sidebar-bottom{margin-top:auto;padding-top:24px}
-
-.support-box{
-padding:16px;background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.10);
-border-radius:10px;margin-bottom:18px
-}
-
-.support-box h4{
-font-family:'Playfair Display',serif;
-font-size:14px;margin-bottom:6px
-}
-
+.support-box{padding:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:10px;margin-bottom:18px}
+.support-box h4{font-family:'Playfair Display',serif;font-size:14px;margin-bottom:6px}
 .support-box p{color:#aab8ca;font-size:10px;line-height:1.7}
-
-.support-link{
-display:inline-block;margin-top:12px;
-color:var(--gold);font-size:10px;font-weight:700
-}
-
-.sidebar-footer{
-border-top:1px solid rgba(255,255,255,.10);
-padding:15px 8px 0;color:#8091a9;
-font-size:9px;line-height:1.8
-}
-
+.support-link{display:inline-block;margin-top:12px;color:var(--gold);font-size:10px;font-weight:700}
+.sidebar-footer{border-top:1px solid rgba(255,255,255,.10);padding:15px 8px 0;color:#8091a9;font-size:9px;line-height:1.8}
 .main{margin-left:260px;width:calc(100% - 260px);min-width:0}
-
-.topbar{
-height:76px;background:white;border-bottom:1px solid var(--border);
-display:flex;align-items:center;justify-content:space-between;
-padding:0 38px;position:sticky;top:0;z-index:10
-}
-
-.breadcrumb{color:var(--muted);font-size:11px}
-.breadcrumb strong{color:var(--navy);font-weight:700}
+.topbar{height:76px;background:white;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 38px;position:sticky;top:0;z-index:10}
+.breadcrumb{color:var(--muted);font-size:11px}.breadcrumb strong{color:var(--navy);font-weight:700}
 .top-actions{display:flex;align-items:center;gap:17px}
-
-.search{
-width:205px;height:37px;background:#f6f7f9;
-border:1px solid #edf0f3;border-radius:7px;
-padding:0 12px;outline:none;font-size:11px;font-family:inherit
-}
-
+.search{width:205px;height:37px;background:#f6f7f9;border:1px solid #edf0f3;border-radius:7px;padding:0 12px;outline:none;font-size:11px;font-family:inherit}
 .search:focus{border-color:var(--gold)}
-
-.notification{
-width:36px;height:36px;border:1px solid var(--border);
-border-radius:8px;display:grid;place-items:center;
-color:var(--navy);font-size:16px;background:white
-}
-
-.top-avatar{
-width:36px;height:36px;background:var(--navy);
-color:var(--gold);border-radius:50%;
-display:grid;place-items:center;
-font-family:'Playfair Display',serif;
-font-size:13px;font-weight:700
-}
-
+.notification{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;display:grid;place-items:center;color:var(--navy);font-size:16px;background:white}
+.top-avatar{width:36px;height:36px;background:var(--navy);color:var(--gold);border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:13px;font-weight:700}
 .content{max-width:1500px;margin:auto;padding:33px 38px 45px}
 [hidden]{display:none!important}
-
-.page-heading{
-display:flex;justify-content:space-between;
-align-items:flex-end;gap:15px;margin-bottom:25px
-}
-
-.overline{
-color:#a77a24;font-size:9px;font-weight:800;
-letter-spacing:2px;text-transform:uppercase;margin-bottom:8px
-}
-
-.page-heading h1{
-color:var(--navy);font-family:'Playfair Display',serif;
-font-size:clamp(25px,3vw,34px);font-weight:600
-}
-
+.page-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:25px}
+.overline{color:#a77a24;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.page-heading h1{color:var(--navy);font-family:'Playfair Display',serif;font-size:clamp(25px,3vw,34px);font-weight:600}
 .page-heading p{color:var(--muted);font-size:11px;margin-top:7px}
-
-.semester-tag{
-background:white;border:1px solid var(--border);
-padding:10px 15px;border-radius:7px;color:var(--navy);
-font-size:10px;font-weight:800;letter-spacing:.6px;white-space:nowrap
-}
-
-.hero{
-min-height:175px;
-background:radial-gradient(circle at 90% 15%,rgba(215,162,51,.22),transparent 25%),linear-gradient(110deg,#101f38 0%,#193453 65%,#263f60 100%);
-border-radius:12px;padding:29px 33px;
-display:flex;justify-content:space-between;align-items:center;
-color:white;position:relative;overflow:hidden;
-margin-bottom:23px;box-shadow:0 9px 25px rgba(16,31,56,.13)
-}
-
-.hero:after{
-content:"ABM";position:absolute;right:60px;top:-38px;
-color:rgba(255,255,255,.035);
-font-family:'Playfair Display',serif;
-font-size:170px;font-weight:700;pointer-events:none
-}
-
+.semester-tag{background:white;border:1px solid var(--border);padding:10px 15px;border-radius:7px;color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.6px;white-space:nowrap}
+.hero{min-height:175px;background:radial-gradient(circle at 90% 15%,rgba(215,162,51,.22),transparent 25%),linear-gradient(110deg,#101f38 0%,#193453 65%,#263f60 100%);border-radius:12px;padding:29px 33px;display:flex;justify-content:space-between;align-items:center;color:white;position:relative;overflow:hidden;margin-bottom:23px;box-shadow:0 9px 25px rgba(16,31,56,.13)}
+.hero:after{content:"ABM";position:absolute;right:60px;top:-38px;color:rgba(255,255,255,.035);font-family:'Playfair Display',serif;font-size:170px;font-weight:700;pointer-events:none}
 .hero-content{position:relative;z-index:1}
-.hero-label{
-color:var(--gold);font-size:9px;font-weight:800;
-letter-spacing:2px;text-transform:uppercase;margin-bottom:11px
-}
-
+.hero-label{color:var(--gold);font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px}
 .hero h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:500}
 .hero p{color:#b9c6d5;font-size:11px;margin-top:8px}
-
-.hero-button{
-display:inline-block;margin-top:17px;padding:9px 15px;
-background:var(--gold);color:var(--navy);
-border:0;border-radius:5px;font-size:10px;font-weight:800
-}
-
+.hero-button{display:inline-block;margin-top:17px;padding:9px 15px;background:var(--gold);color:var(--navy);border:0;border-radius:5px;font-size:10px;font-weight:800}
 .hero-button:hover{background:#edc36d}
-
-.hero-mark{
-width:105px;height:105px;border:1px solid rgba(215,162,51,.5);
-border-radius:50%;display:grid;place-items:center;
-color:var(--gold);font-family:'Playfair Display',serif;
-font-size:42px;margin-right:40px
-}
-
-.stats{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:17px;margin-bottom:24px
-}
-
-.stat-card{
-background:white;border:1px solid var(--border);
-border-radius:10px;padding:19px;display:flex;
-align-items:center;gap:14px;box-shadow:var(--shadow)
-}
-
-.stat-icon{
-width:43px;height:43px;border-radius:9px;
-display:grid;place-items:center;
-background:var(--gold-light);color:#966b1e;font-size:18px
-}
-
-.stat-card:nth-child(2) .stat-icon{background:#eaf0f8;color:#355b8a}
-.stat-card:nth-child(3) .stat-icon{background:var(--green-bg);color:var(--green)}
-
+.hero-mark{width:105px;height:105px;border:1px solid rgba(215,162,51,.5);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:'Playfair Display',serif;font-size:42px;margin-right:40px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-bottom:24px}
+.stat-card{background:white;border:1px solid var(--border);border-radius:10px;padding:19px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow)}
+.stat-icon{width:43px;height:43px;border-radius:9px;display:grid;place-items:center;background:var(--gold-light);color:#966b1e;font-size:18px}
+.stat-card:nth-child(2) .stat-icon{background:#eaf0f8;color:#355b8a}.stat-card:nth-child(3) .stat-icon{background:var(--green-bg);color:var(--green)}
 .stat-number{color:var(--navy);font-size:19px;font-weight:800;line-height:1.2}
 .stat-label{color:var(--muted);font-size:10px;margin-top:5px}
-
-.dashboard-grid{
-display:grid;grid-template-columns:minmax(0,1.75fr) minmax(255px,.9fr);
-gap:22px;align-items:start
-}
-
-.panel{
-background:white;border:1px solid var(--border);
-border-radius:11px;box-shadow:var(--shadow);
-padding:22px;margin-bottom:20px
-}
-
-.panel-heading{
-display:flex;justify-content:space-between;
-align-items:center;gap:12px;margin-bottom:19px
-}
-
-.panel-heading h3{
-font-family:'Playfair Display',serif;
-color:var(--navy);font-size:18px;font-weight:600
-}
-
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(255px,.9fr);gap:22px;align-items:start}
+.panel{background:white;border:1px solid var(--border);border-radius:11px;box-shadow:var(--shadow);padding:22px;margin-bottom:20px}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:19px}
+.panel-heading h3{font-family:'Playfair Display',serif;color:var(--navy);font-size:18px;font-weight:600}
 .panel-heading p{font-size:10px;color:var(--muted);margin-top:4px}
-
-.count{
-padding:6px 10px;border-radius:5px;
-background:var(--gold-light);color:#90661c;
-font-size:9px;font-weight:800;white-space:nowrap
-}
-
+.count{padding:6px 10px;border-radius:5px;background:var(--gold-light);color:#90661c;font-size:9px;font-weight:800;white-space:nowrap}
 .subject-list{display:grid;gap:11px}
-
-.subject{
-display:flex;align-items:center;gap:13px;
-padding:13px;border:1px solid #edf0f3;
-border-radius:8px;min-width:0
-}
-
-.subject-icon{
-width:42px;height:42px;flex-shrink:0;
-display:grid;place-items:center;background:#f0f3f7;
-color:var(--navy);font-family:'Playfair Display',serif;
-font-size:14px;font-weight:700;border-radius:8px
-}
-
-.subject:nth-child(2) .subject-icon,.subject:nth-child(4) .subject-icon{
-background:var(--gold-light);color:#956c22
-}
-
+.subject{display:flex;align-items:center;gap:13px;padding:13px;border:1px solid #edf0f3;border-radius:8px;min-width:0}
+.subject-icon{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;background:#f0f3f7;color:var(--navy);font-family:'Playfair Display',serif;font-size:14px;font-weight:700;border-radius:8px}
+.subject:nth-child(2) .subject-icon,.subject:nth-child(4) .subject-icon{background:var(--gold-light);color:#956c22}
 .subject-info{flex:1;min-width:0}
 .subject-info h4{color:var(--navy);font-size:11px;font-weight:800;line-height:1.5}
 .subject-info p{color:var(--muted);font-size:9px;margin-top:4px}
-
-.subject-status{
-color:var(--green);background:var(--green-bg);
-border-radius:4px;padding:5px 8px;
-font-size:8px;font-weight:800;white-space:nowrap
-}
-
+.subject-status{color:var(--green);background:var(--green-bg);border-radius:4px;padding:5px 8px;font-size:8px;font-weight:800;white-space:nowrap}
 .profile-card{overflow:hidden;padding:0}
-.profile-cover{
-height:100px;
-background:radial-gradient(circle at 85% 15%,rgba(215,162,51,.22),transparent 30%),linear-gradient(120deg,#101f38,#294769);
-border-bottom:3px solid var(--gold)
-}
-
+.profile-cover{height:100px;background:radial-gradient(circle at 85% 15%,rgba(215,162,51,.22),transparent 30%),linear-gradient(120deg,#101f38,#294769);border-bottom:3px solid var(--gold)}
 .profile-inner{padding:0 20px 21px}
-
-.profile-avatar{
-width:76px;height:76px;border-radius:50%;
-margin-top:-38px;background:var(--navy);
-color:var(--gold);border:5px solid white;
-display:grid;place-items:center;
-font-family:'Playfair Display',serif;font-size:24px;font-weight:700
-}
-
-.profile-name{
-font-family:'Playfair Display',serif;
-font-size:20px;color:var(--navy);margin-top:11px
-}
-
+.profile-avatar{width:76px;height:76px;border-radius:50%;margin-top:-38px;background:var(--navy);color:var(--gold);border:5px solid white;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.profile-name{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-top:11px}
 .profile-dept{color:var(--muted);font-size:10px;margin-top:4px}
-
-.active-status{
-display:inline-flex;align-items:center;gap:6px;
-background:var(--green-bg);color:var(--green);
-padding:6px 10px;border-radius:20px;
-font-size:9px;font-weight:800;margin-top:13px
-}
-
+.active-status{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);padding:6px 10px;border-radius:20px;font-size:9px;font-weight:800;margin-top:13px}
 .active-dot{width:6px;height:6px;background:var(--green);border-radius:50%}
 .profile-divider{height:1px;background:var(--border);margin:19px 0}
-.detail{margin-bottom:15px}
-.detail:last-child{margin-bottom:0}
-
-.detail-label{
-color:var(--muted);text-transform:uppercase;
-letter-spacing:.8px;font-size:8px;font-weight:800;margin-bottom:5px
-}
-
-.detail-value{
-color:var(--navy);font-size:11px;font-weight:700;overflow-wrap:anywhere
-}
-
-.registrar{
-background:#fffdf8;border:1px solid #eee1c5;
-border-radius:9px;padding:18px
-}
-
-.registrar-heading{
-display:flex;align-items:center;gap:9px;
-font-family:'Playfair Display',serif;
-font-size:15px;color:var(--navy);margin-bottom:9px
-}
-
+.detail{margin-bottom:15px}.detail:last-child{margin-bottom:0}
+.detail-label{color:var(--muted);text-transform:uppercase;letter-spacing:.8px;font-size:8px;font-weight:800;margin-bottom:5px}
+.detail-value{color:var(--navy);font-size:11px;font-weight:700;overflow-wrap:anywhere}
+.registrar{background:#fffdf8;border:1px solid #eee1c5;border-radius:9px;padding:18px}
+.registrar-heading{display:flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);margin-bottom:9px}
 .registrar-icon{color:#a77a24}
 .registrar p{font-size:10px;color:#788395;line-height:1.9}
 .registrar a{color:var(--navy);font-weight:800;text-decoration:underline;text-underline-offset:3px}
-
-.footer{
-border-top:1px solid var(--border);padding:19px 38px;
-display:flex;justify-content:space-between;gap:10px;
-color:var(--muted);font-size:9px;background:white
-}
-
+.footer{border-top:1px solid var(--border);padding:19px 38px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:9px;background:white}
 .footer strong{color:var(--navy)}
-.mobile-menu{
-display:none;background:white;border:1px solid var(--border);
-width:36px;height:36px;border-radius:7px;color:var(--navy);font-size:18px
-}
-
-.overlay{display:none}
-.section-anchor{scroll-margin-top:94px}
-
-.records-grid{
-display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px
-}
-
-.record-card{
-background:#fff;border:1px solid var(--border);
-border-radius:11px;padding:21px;box-shadow:var(--shadow);min-width:0
-}
-
+.mobile-menu{display:none;background:white;border:1px solid var(--border);width:36px;height:36px;border-radius:7px;color:var(--navy);font-size:18px}
+.overlay{display:none}.section-anchor{scroll-margin-top:94px}
+.records-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.record-card{background:#fff;border:1px solid var(--border);border-radius:11px;padding:21px;box-shadow:var(--shadow);min-width:0}
 .record-card-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-
-.record-icon{
-width:42px;height:42px;display:grid;place-items:center;
-border-radius:9px;background:var(--gold-light);
-color:#956c22;font-size:18px;flex:none
-}
-
-.record-card:nth-child(2) .record-icon{background:#eaf0f8;color:#355b8a}
-.record-card:nth-child(3) .record-icon{background:var(--green-bg);color:var(--green)}
-.record-card:nth-child(4) .record-icon{background:#f0edf8;color:#66518e}
-
+.record-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:9px;background:var(--gold-light);color:#956c22;font-size:18px;flex:none}
+.record-card:nth-child(2) .record-icon{background:#eaf0f8;color:#355b8a}.record-card:nth-child(3) .record-icon{background:var(--green-bg);color:var(--green)}.record-card:nth-child(4) .record-icon{background:#f0edf8;color:#66518e}
 .record-card h3{font-family:'Playfair Display',serif;color:var(--navy);font-size:17px}
 .record-card p{font-size:10px;color:var(--muted);margin-top:3px}
-
-.record-empty{
-border:1px dashed var(--border);border-radius:8px;
-padding:20px 14px;text-align:center;color:var(--muted);
-font-size:11px;line-height:1.7;background:#fbfcfd
-}
-
+.record-empty{border:1px dashed var(--border);border-radius:8px;padding:20px 14px;text-align:center;color:var(--muted);font-size:11px;line-height:1.7;background:#fbfcfd}
 .record-empty strong{display:block;color:var(--navy);font-size:12px;margin-bottom:3px}
-.records-intro{margin-bottom:20px}
-.records-intro p{font-size:11px;color:var(--muted);margin-top:7px}
+.records-intro{margin-bottom:20px}.records-intro p{font-size:11px;color:var(--muted);margin-top:7px}
 
 @media(max-width:1100px){
 .sidebar{width:230px}
@@ -449,7 +130,6 @@ font-size:11px;line-height:1.7;background:#fbfcfd
 .topbar{padding:0 24px}
 .dashboard-grid{grid-template-columns:minmax(0,1.5fr) minmax(235px,.9fr)}
 }
-
 @media(max-width:800px){
 .records-grid{grid-template-columns:1fr}
 .sidebar{width:260px;transform:translateX(-100%);transition:transform .25s ease}
@@ -460,7 +140,6 @@ font-size:11px;line-height:1.7;background:#fbfcfd
 .topbar{gap:12px}
 .dashboard-grid{grid-template-columns:1fr}
 }
-
 @media(max-width:560px){
 .topbar{height:65px;padding:0 15px}
 .breadcrumb{display:none}
@@ -487,299 +166,189 @@ font-size:11px;line-height:1.7;background:#fbfcfd
 
 <body>
 <div class="app">
-
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-logo" aria-label="ABM College logo">
+      <svg viewBox="0 0 64 64" width="34" height="34" role="img" aria-hidden="true">
+        <path d="M32 4 53 12v17c0 14-8.7 24.5-21 31C19.7 53.5 11 43 11 29V12L32 4Z" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M19 42 31.8 16 45 42h-6.2l-2.5-5.4H28L25.5 42H19Zm11.2-11h3.7L32 26.8l-1.8 4.2Z" fill="currentColor"/>
+        <path d="M23 47h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">ABM Modern Educational Global Online College</div>
+      <div class="brand-caption">Student Portal</div>
+    </div>
+  </div>
 
-<div class="brand">
-<div class="brand-logo" aria-label="ABM College logo">
-<svg viewBox="0 0 64 64" width="34" height="34" role="img" aria-hidden="true">
-<path d="M32 4 53 12v17c0 14-8.7 24.5-21 31C19.7 53.5 11 43 11 29V12L32 4Z" fill="none" stroke="currentColor" stroke-width="2.4"/>
-<path d="M19 42 31.8 16 45 42h-6.2l-2.5-5.4H28L25.5 42H19Zm11.2-11h3.7L32 26.8l-1.8 4.2Z" fill="currentColor"/>
-<path d="M23 47h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-</svg>
-</div>
-<div>
-<div class="brand-name">ABM Modern Educational Global Online College</div>
-<div class="brand-caption">Student Portal</div>
-</div>
-</div>
+  <div class="nav-label">Main Menu</div>
+  <nav class="nav">
+    <a href="#dashboard" class="active" data-nav="dashboard"><span class="nav-icon">▦</span> Dashboard</a>
+    <a href="#profile" data-nav="profile"><span class="nav-icon">♙</span> My Profile</a>
+    <a href="#courses" data-nav="courses"><span class="nav-icon">▤</span> My Courses</a>
+    <details class="nav-group">
+      <summary><span class="nav-icon">⇩</span> Download <span class="nav-chevron">⌄</span></summary>
+      <div class="nav-submenu">
+        <a href="#welcome" onclick="downloadDocument('welcome');return false"><span class="nav-icon">▤</span> Welcome Letter</a>
+        <a href="#receipt" onclick="downloadDocument('enrolment');return false"><span class="nav-icon">▤</span> Enrolment Receipt</a>
+        <a href="#academic" onclick="downloadDocument('academic');return false"><span class="nav-icon">▤</span> Academic Records</a>
+      </div>
+    </details>
+    <a href="#records" data-nav="records"><span class="nav-icon">▧</span> View Academic Records</a>
+  </nav>
 
-<div class="nav-label">Main Menu</div>
+  <div class="nav-label">Institution</div>
+  <nav class="nav">
+    <a href="#registrar" data-nav="registrar"><span class="nav-icon">✦</span> Registrar Office</a>
+    <a href="mailto:records@abm-media.me"><span class="nav-icon">✉</span> Contact Support</a>
+  </nav>
 
-<nav class="nav">
-<a href="#dashboard" class="active" data-nav="dashboard"><span class="nav-icon">▦</span> Dashboard</a>
-<a href="#profile" data-nav="profile"><span class="nav-icon">♙</span> My Profile</a>
-<a href="#courses" data-nav="courses"><span class="nav-icon">▤</span> My Courses</a>
-
-<details class="nav-group">
-<summary>
-<span class="nav-icon">⇩</span> Download
-<span class="nav-chevron">⌄</span>
-</summary>
-
-<div class="nav-submenu">
-<a href="#welcome" onclick="downloadDocument('welcome');return false"><span class="nav-icon">▤</span> Welcome Letter</a>
-<a href="#receipt" onclick="downloadDocument('enrolment');return false"><span class="nav-icon">▤</span> Enrolment Receipt</a>
-<a href="#academic" onclick="downloadDocument('academic');return false"><span class="nav-icon">▤</span> Academic Records</a>
-</div>
-</details>
-
-<a href="#records" data-nav="records"><span class="nav-icon">▧</span> View Academic Records</a>
-</nav>
-
-<div class="nav-label">Institution</div>
-
-<nav class="nav">
-<a href="#registrar" data-nav="registrar"><span class="nav-icon">✦</span> Registrar Office</a>
-<a href="mailto:records@abm-media.me"><span class="nav-icon">✉</span> Contact Support</a>
-</nav>
-
-<div class="sidebar-bottom">
-<div class="support-box">
-<h4>Need Assistance?</h4>
-<p>Contact the student support office for general academic and portal assistance.</p>
-<a class="support-link" href="mailto:records@abm-media.me">CONTACT OFFICE ↗</a>
-</div>
-
-<div class="sidebar-footer">
-© 2026 ABM Global Online College<br>
-Institutional Domain: abm-media.me
-</div>
-</div>
-
+  <div class="sidebar-bottom">
+    <div class="support-box">
+      <h4>Need Assistance?</h4>
+      <p>Contact the student support office for general academic and portal assistance.</p>
+      <a class="support-link" href="mailto:records@abm-media.me">CONTACT OFFICE ↗</a>
+    </div>
+    <div class="sidebar-footer">© 2026 ABM Global Online College<br>Institutional Domain: abm-media.me</div>
+  </div>
 </aside>
 
 <main class="main" id="dashboard">
-
 <header class="topbar">
-<div style="display:flex;align-items:center;gap:13px">
-<button class="mobile-menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-<div class="breadcrumb">Home <span style="margin:0 7px">/</span><strong id="breadcrumb-title">Student Dashboard</strong></div>
-</div>
-
-<div class="top-actions">
-<input class="search" type="search" id="courseSearch" placeholder="Search subjects..." aria-label="Search subjects">
-<button class="notification" aria-label="Notifications">♧</button>
-<div class="top-avatar">MF</div>
-</div>
+  <div style="display:flex;align-items:center;gap:13px">
+    <button class="mobile-menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <div class="breadcrumb">Home <span style="margin:0 7px">/</span><strong id="breadcrumb-title">Student Dashboard</strong></div>
+  </div>
+  <div class="top-actions">
+    <input class="search" type="search" id="courseSearch" placeholder="Search subjects..." aria-label="Search subjects">
+    <button class="notification" aria-label="Notifications">♧</button>
+    <div class="top-avatar">MF</div>
+  </div>
 </header>
 
-<!-- DASHBOARD VIEW -->
 <div class="content" id="dashboard-view">
+  <section class="page-heading">
+    <div>
+      <div class="overline">Student Portal / Overview</div>
+      <h1>Academic Dashboard</h1>
+      <p>Welcome back, Mohammad. Here is your academic overview.</p>
+    </div>
+    <div class="semester-tag">FALL SEMESTER · 2026</div>
+  </section>
 
-<section class="page-heading">
-<div>
-<div class="overline">Student Portal / Overview</div>
-<h1>Academic Dashboard</h1>
-<p>Welcome back, Mohammad. Here is your academic overview.</p>
-</div>
-<div class="semester-tag">FALL SEMESTER · 2026</div>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">ABM Global Online College</div>
+      <h2>Welcome, Mohammad Farhan</h2>
+      <p>Your academic journey continues. Explore your enrolled subjects and student records.</p>
+      <button type="button" class="hero-button" onclick="showView('courses')">VIEW MY COURSES &nbsp; →</button>
+    </div>
+    <div class="hero-mark">A</div>
+  </section>
 
-<section class="hero">
-<div class="hero-content">
-<div class="hero-label">ABM Global Online College</div>
-<h2>Welcome, Mohammad Farhan</h2>
-<p>Your academic journey continues. Explore your enrolled subjects and student records.</p>
-<button type="button" class="hero-button" onclick="showView('courses')">VIEW MY COURSES &nbsp; →</button>
-</div>
-<div class="hero-mark">A</div>
-</section>
+  <section class="stats">
+    <div class="stat-card"><div class="stat-icon">▤</div><div><div class="stat-number">05</div><div class="stat-label">Enrolled Subjects</div></div></div>
+    <div class="stat-card"><div class="stat-icon">♙</div><div><div class="stat-number">Grade 10</div><div class="stat-label">Academic Level</div></div></div>
+    <div class="stat-card"><div class="stat-icon">✓</div><div><div class="stat-number">Active</div><div class="stat-label">Enrollment Status</div></div></div>
+  </section>
 
-<section class="stats">
-<div class="stat-card">
-<div class="stat-icon">▤</div>
-<div><div class="stat-number">05</div><div class="stat-label">Enrolled Subjects</div></div>
-</div>
-
-<div class="stat-card">
-<div class="stat-icon">♙</div>
-<div><div class="stat-number">Grade 10</div><div class="stat-label">Academic Level</div></div>
-</div>
-
-<div class="stat-card">
-<div class="stat-icon">✓</div>
-<div><div class="stat-number">Active</div><div class="stat-label">Enrollment Status</div></div>
-</div>
-</section>
-
-<section class="dashboard-grid">
-
-<div>
-<section class="registrar section-anchor" id="registrar">
-<h3 class="registrar-heading"><span class="registrar-icon">✦</span>Registrar Office</h3>
-<p>
-Welcome to the ABM Global Online College Student Portal.
-For general student information, academic records, or portal assistance,
-please contact <a href="mailto:records@abm-media.me">records@abm-media.me</a>.
-</p>
-</section>
-</div>
-
-<div>
-<section class="panel profile-card section-anchor" id="profile">
-<div class="profile-cover"></div>
-
-<div class="profile-inner">
-<div class="profile-avatar">MF</div>
-<h2 class="profile-name">Mohammad Farhan</h2>
-<p class="profile-dept">Business Studies · Grade 10</p>
-
-<div class="active-status"><span class="active-dot"></span>Active Enrolled Student</div>
-
-<div class="profile-divider"></div>
-
-<div class="detail">
-<div class="detail-label">Student ID / Code</div>
-<div class="detail-value">GOC-2026-BUS10</div>
+  <section class="dashboard-grid">
+    <div>
+      <section class="registrar section-anchor" id="registrar">
+        <h3 class="registrar-heading"><span class="registrar-icon">✦</span>Registrar Office</h3>
+        <p>Welcome to the ABM Global Online College Student Portal. For general student information, academic records, or portal assistance, please contact <a href="mailto:records@abm-media.me">records@abm-media.me</a>.</p>
+      </section>
+    </div>
+    <div>
+      <section class="panel profile-card section-anchor" id="profile">
+        <div class="profile-cover"></div>
+        <div class="profile-inner">
+          <div class="profile-avatar">MF</div>
+          <h2 class="profile-name">Mohammad Farhan</h2>
+          <p class="profile-dept">Business Studies · Grade 10</p>
+          <div class="active-status"><span class="active-dot"></span>Active Enrolled Student</div>
+          <div class="profile-divider"></div>
+          <div class="detail"><div class="detail-label">Student ID / Code</div><div class="detail-value">GOC-2026-BUS10</div></div>
+          <div class="detail"><div class="detail-label">Institutional Email</div><div class="detail-value">mohammad.farhan@abm-media.me</div></div>
+          <div class="detail"><div class="detail-label">Department &amp; Level</div><div class="detail-value">Business Studies (Grade 10)</div></div>
+          <div class="detail"><div class="detail-label">Academic Cycle</div><div class="detail-value">Fall Semester 2026</div></div>
+        </div>
+      </section>
+    </div>
+  </section>
 </div>
 
-<div class="detail">
-<div class="detail-label">Institutional Email</div>
-<div class="detail-value">mohammad.farhan@abm-media.me</div>
-</div>
-
-<div class="detail">
-<div class="detail-label">Department &amp; Level</div>
-<div class="detail-value">Business Studies (Grade 10)</div>
-</div>
-
-<div class="detail">
-<div class="detail-label">Academic Cycle</div>
-<div class="detail-value">Fall Semester 2026</div>
-</div>
-</div>
-</section>
-</div>
-
-</section>
-</div>
-
-<!-- COURSES VIEW -->
 <section class="content" id="courses-view" hidden>
-
-<section class="page-heading">
-<div>
-<div class="overline">Student Portal / Academics</div>
-<h1>My Courses</h1>
-<p>All five subjects listed for Fall Semester 2026.</p>
-</div>
-<div class="semester-tag">FALL SEMESTER · 2026</div>
+  <section class="page-heading">
+    <div>
+      <div class="overline">Student Portal / Academics</div>
+      <h1>My Courses</h1>
+      <p>All five subjects listed for Fall Semester 2026.</p>
+    </div>
+    <div class="semester-tag">FALL SEMESTER · 2026</div>
+  </section>
+  <section class="panel section-anchor" id="courses">
+    <div class="panel-heading">
+      <div><h3>My Enrolled Subjects</h3><p>Current academic curriculum</p></div>
+      <span class="count">05 SUBJECTS</span>
+    </div>
+    <div class="subject-list" id="subjectList">
+      <article class="subject"><div class="subject-icon">AC</div><div class="subject-info"><h4>Accounting</h4><p>Business Studies · ACC-101</p></div><span class="subject-status">ACTIVE</span></article>
+      <article class="subject"><div class="subject-icon">BE</div><div class="subject-info"><h4>Business Entrepreneurship</h4><p>Business Studies · BUS-102</p></div><span class="subject-status">ACTIVE</span></article>
+      <article class="subject"><div class="subject-icon">CS</div><div class="subject-info"><h4>Computer Science</h4><p>Information Technology · CSC-103</p></div><span class="subject-status">ACTIVE</span></article>
+      <article class="subject"><div class="subject-icon">EN</div><div class="subject-info"><h4>English Language &amp; Literature</h4><p>Humanities &amp; Language · ENG-104</p></div><span class="subject-status">ACTIVE</span></article>
+      <article class="subject"><div class="subject-icon">BN</div><div class="subject-info"><h4>Bangla Language &amp; Literature</h4><p>Humanities &amp; Language · BNG-105</p></div><span class="subject-status">ACTIVE</span></article>
+    </div>
+  </section>
+  <button type="button" class="hero-button" onclick="showView('dashboard')">← BACK TO DASHBOARD</button>
 </section>
 
-<section class="panel section-anchor" id="courses">
-<div class="panel-heading">
-<div><h3>My Enrolled Subjects</h3><p>Current academic curriculum</p></div>
-<span class="count">05 SUBJECTS</span>
-</div>
-
-<div class="subject-list" id="subjectList">
-
-<article class="subject">
-<div class="subject-icon">AC</div>
-<div class="subject-info"><h4>Accounting</h4><p>Business Studies · ACC-101</p></div>
-<span class="subject-status">ACTIVE</span>
-</article>
-
-<article class="subject">
-<div class="subject-icon">BE</div>
-<div class="subject-info"><h4>Business Entrepreneurship</h4><p>Business Studies · BUS-102</p></div>
-<span class="subject-status">ACTIVE</span>
-</article>
-
-<article class="subject">
-<div class="subject-icon">CS</div>
-<div class="subject-info"><h4>Computer Science</h4><p>Information Technology · CSC-103</p></div>
-<span class="subject-status">ACTIVE</span>
-</article>
-
-<article class="subject">
-<div class="subject-icon">EN</div>
-<div class="subject-info"><h4>English Language &amp; Literature</h4><p>Humanities &amp; Language · ENG-104</p></div>
-<span class="subject-status">ACTIVE</span>
-</article>
-
-<article class="subject">
-<div class="subject-icon">BN</div>
-<div class="subject-info"><h4>Bangla Language &amp; Literature</h4><p>Humanities &amp; Language · BNG-105</p></div>
-<span class="subject-status">ACTIVE</span>
-</article>
-
-</div>
-</section>
-
-<button type="button" class="hero-button" onclick="showView('dashboard')">← BACK TO DASHBOARD</button>
-</section>
-
-<!-- ACADEMIC RECORDS VIEW -->
 <section class="content" id="records-view" hidden>
-
-<section class="page-heading">
-<div>
-<div class="overline">Student Portal / Academic Information</div>
-<h1>Academic Records</h1>
-<p>Academic information currently available for this student.</p>
-</div>
-<div class="semester-tag">FALL SEMESTER · 2026</div>
-</section>
-
-<div class="records-intro">
-<p>Assignments, learning progress, grades, and class information will appear here when published or recorded.</p>
-</div>
-
-<section class="records-grid" aria-label="Academic record categories">
-
-<article class="record-card">
-<div class="record-card-head">
-<div class="record-icon">☷</div>
-<div><h3>Assignments</h3><p>Tasks, deadlines and submission status</p></div>
-</div>
-<div class="record-empty"><strong>No assignment records available</strong>Assignment details will appear here when they are published.</div>
-</article>
-
-<article class="record-card">
-<div class="record-card-head">
-<div class="record-icon">▥</div>
-<div><h3>Course Progress</h3><p>Lesson completion by subject</p></div>
-</div>
-<div class="record-empty"><strong>No progress records available</strong>Course progress will appear here when learning activity is recorded.</div>
-</article>
-
-<article class="record-card">
-<div class="record-card-head">
-<div class="record-icon">★</div>
-<div><h3>Grades</h3><p>Assessment results and academic performance</p></div>
-</div>
-<div class="record-empty"><strong>No grades have been published</strong>Published assessment results will appear here.</div>
-</article>
-
-<article class="record-card">
-<div class="record-card-head">
-<div class="record-icon">◷</div>
-<div><h3>Live Classes</h3><p>Timetable and online class information</p></div>
-</div>
-<div class="record-empty"><strong>No live class schedule available</strong>Class schedules and session details will appear here when available.</div>
-</article>
-
-</section>
-
-<button type="button" class="hero-button" onclick="showView('dashboard')">← BACK TO DASHBOARD</button>
+  <section class="page-heading">
+    <div>
+      <div class="overline">Student Portal / Academic Information</div>
+      <h1>Academic Records</h1>
+      <p>Academic information currently available for this student.</p>
+    </div>
+    <div class="semester-tag">FALL SEMESTER · 2026</div>
+  </section>
+  <div class="records-intro">
+    <p>Assignments, learning progress, grades, and class information will appear here when published or recorded.</p>
+  </div>
+  <section class="records-grid" aria-label="Academic record categories">
+    <article class="record-card">
+      <div class="record-card-head"><div class="record-icon">☷</div><div><h3>Assignments</h3><p>Tasks, deadlines and submission status</p></div></div>
+      <div class="record-empty"><strong>No assignment records available</strong>Assignment details will appear here when they are published.</div>
+    </article>
+    <article class="record-card">
+      <div class="record-card-head"><div class="record-icon">▥</div><div><h3>Course Progress</h3><p>Lesson completion by subject</p></div></div>
+      <div class="record-empty"><strong>No progress records available</strong>Course progress will appear here when learning activity is recorded.</div>
+    </article>
+    <article class="record-card">
+      <div class="record-card-head"><div class="record-icon">★</div><div><h3>Grades</h3><p>Assessment results and academic performance</p></div></div>
+      <div class="record-empty"><strong>No grades have been published</strong>Published assessment results will appear here.</div>
+    </article>
+    <article class="record-card">
+      <div class="record-card-head"><div class="record-icon">◷</div><div><h3>Live Classes</h3><p>Timetable and online class information</p></div></div>
+      <div class="record-empty"><strong>No live class schedule available</strong>Class schedules and session details will appear here when available.</div>
+    </article>
+  </section>
+  <button type="button" class="hero-button" onclick="showView('dashboard')">← BACK TO DASHBOARD</button>
 </section>
 
 <footer class="footer">
-<span>© 2026 <strong>ABM Modern Educational Global Online College</strong>.</span>
-<span>Institutional Domain: <strong>abm-media.me</strong></span>
+  <span>© 2026 <strong>ABM Modern Educational Global Online College</strong>.</span>
+  <span>Institutional Domain: <strong>abm-media.me</strong></span>
 </footer>
-
 </main>
 </div>
 
 <script>
 "use strict";
 
-/* Student information for this sample dashboard */
+/* Student information */
 
 const student = {
   name: "Mohammad Farhan",
@@ -796,6 +365,17 @@ const student = {
   ]
 };
 
+/* Confirmed payment information */
+
+const payment = {
+  transactionId: "Tx1QjNtc00J",
+  paymentDate: "10/11/2026",
+  total: "$49.99",
+  paid: "$49.99",
+  balance: "$0.00",
+  status: "PAID IN FULL"
+};
+
 function toggleMenu() {
   document.getElementById("sidebar").classList.toggle("open");
   document.getElementById("overlay").classList.toggle("show");
@@ -808,10 +388,7 @@ function closeMobileMenu() {
 
 function showView(view) {
   const validViews = ["dashboard", "courses", "records"];
-
-  if (!validViews.includes(view)) {
-    view = "dashboard";
-  }
+  if (!validViews.includes(view)) view = "dashboard";
 
   document.getElementById("dashboard-view").hidden = view !== "dashboard";
   document.getElementById("courses-view").hidden = view !== "courses";
@@ -838,20 +415,15 @@ function showView(view) {
 document.querySelectorAll(".sidebar .nav a[data-nav]").forEach(link => {
   link.addEventListener("click", function(event) {
     event.preventDefault();
-
     const view = this.dataset.nav;
 
     if (view === "profile" || view === "registrar") {
       showView("dashboard");
-
       const target = document.getElementById(view);
 
       if (target) {
         setTimeout(() => {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
+          target.scrollIntoView({behavior: "smooth", block: "start"});
         }, 50);
       }
 
@@ -893,160 +465,131 @@ function escapeHtml(value) {
   })[char]);
 }
 
-/* Document design */
+/* Professional document styles */
 
 function documentStyles() {
   return `
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root {
+      --navy:#10233e;
+      --gold:#bd8b2e;
+      --ink:#172942;
+      --muted:#657286;
+      --line:#dce3eb;
+      --pale:#f4f6f9;
+    }
+
     *{box-sizing:border-box}
+    html{background:#edf0f4}
     body{
-      font-family:Arial,sans-serif;
-      color:#1c293b;
-      margin:0;
-      padding:35px;
-      line-height:1.65;
-      background:#fff
+      margin:0;padding:34px 20px;background:#edf0f4;color:var(--ink);
+      font-family:'DM Sans',Arial,sans-serif;line-height:1.6
     }
-
     .document{
-      max-width:850px;
-      margin:0 auto;
-      background:#fff
+      max-width:850px;min-height:1050px;margin:0 auto;padding:54px 62px;
+      background:#fff;box-shadow:0 12px 45px rgba(16,35,62,.10)
     }
-
-    .letterhead{
-      text-align:center;
-      border-bottom:4px solid #d7a233;
-      padding-bottom:18px;
-      margin-bottom:25px
+    .masthead{
+      display:flex;align-items:center;gap:19px;padding-bottom:22px;
+      border-bottom:2px solid var(--navy)
     }
-
-    .letterhead h1{
-      color:#101f38;
-      font-size:20px;
-      margin:0 0 6px;
-      letter-spacing:.5px
+    .crest{
+      width:66px;height:66px;flex:none;display:grid;place-items:center;
+      border:1.5px solid var(--gold);border-radius:50%;color:var(--gold);
+      font:700 30px 'Playfair Display',serif
     }
-
-    .letterhead p{
-      color:#667085;
-      font-size:11px;
-      margin:3px 0
+    .institution h1{
+      margin:0;color:var(--navy);font:700 17px/1.35 'Playfair Display',serif;
+      letter-spacing:.45px
     }
-
+    .institution p{margin:4px 0 0;color:var(--muted);font-size:10px;letter-spacing:.5px}
+    .document-kicker{
+      margin-top:30px;color:var(--gold);font-size:9px;font-weight:700;
+      letter-spacing:2.2px;text-transform:uppercase
+    }
     .document-title{
-      text-align:center;
-      color:#101f38;
-      font-size:19px;
-      margin:22px 0;
-      text-transform:uppercase;
-      letter-spacing:.7px
+      margin:7px 0 8px;color:var(--navy);
+      font:600 27px/1.2 'Playfair Display',serif
     }
-
-    .date-line{
-      text-align:right;
-      font-size:12px;
-      margin-bottom:22px
+    .title-rule{width:58px;height:3px;margin:14px 0 25px;background:var(--gold)}
+    .meta-row{
+      display:flex;justify-content:space-between;gap:15px;margin:22px 0;
+      padding:12px 15px;background:var(--pale);
+      border-left:3px solid var(--gold);color:var(--muted);font-size:10px
     }
-
-    .subject-line{
-      font-size:13px;
-      margin:18px 0;
-      color:#101f38
+    .meta-row strong{display:block;margin-top:2px;color:var(--navy);font-size:11px}
+    .section-heading{
+      display:flex;align-items:center;gap:11px;margin:27px 0 12px;
+      color:var(--navy);font:600 15px 'Playfair Display',serif
     }
-
-    .letter-body{
-      font-size:13px;
-      text-align:justify;
-      line-height:1.9
+    .section-heading::before{content:"";width:4px;height:19px;background:var(--gold)}
+    .letter-address{margin:20px 0 22px;font-size:11px;line-height:1.9}
+    .letter-address strong{color:var(--navy)}
+    .letter-body{color:#354357;font-size:11.5px;line-height:1.95;text-align:justify}
+    .letter-body p{margin:0 0 13px}
+    .data-table{width:100%;margin:10px 0 20px;border-collapse:collapse;font-size:10.5px}
+    .data-table th,.data-table td{
+      padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top
     }
-
-    .letter-body p{margin:12px 0}
-
-    h2{
-      font-size:15px;
-      color:#101f38;
-      margin:25px 0 10px
+    .data-table th{width:34%;background:#f3f5f8;color:#526176;font-weight:700}
+    .data-table thead th{
+      width:auto;background:var(--navy);color:white;border-color:var(--navy);
+      font-size:9px;letter-spacing:.4px;text-transform:uppercase
     }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin:12px 0 22px;
-      font-size:12px
+    .data-table tbody tr:nth-child(even) td{background:#fbfcfd}
+    .status-pill{
+      display:inline-block;padding:5px 10px;background:#eaf5ee;color:#23744e;
+      border-radius:3px;font-size:9px;font-weight:800;letter-spacing:.7px
     }
-
-    th,td{
-      border:1px solid #dfe4eb;
-      padding:10px;
-      text-align:left;
-      vertical-align:top
+    .payment-total{
+      display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;
+      padding:17px 19px;background:var(--navy);color:white
     }
-
-    th{
-      background:#f4f6f9;
-      color:#334155;
-      width:35%
+    .payment-total span{color:#d8e0ea;font-size:10px}
+    .payment-total strong{color:#f1cc7b;font:600 23px 'Playfair Display',serif}
+    .payment-status{
+      display:flex;justify-content:space-between;gap:12px;padding:12px 15px;
+      border:1px solid #cfe4d7;background:#f3faf5;color:#276d4d;
+      font-size:10px;font-weight:700
     }
-
-    .signature{
-      margin-top:38px;
-      font-size:12px;
-      line-height:1.8
+    .signature-block{margin-top:34px;color:#455368;font-size:10.5px;line-height:1.7}
+    .signature-name{color:var(--navy);font:700 14px 'Playfair Display',serif}
+    .signature-line{width:205px;margin:34px 0 8px;border-top:1px solid #8d99a8}
+    .document-note{
+      margin-top:25px;padding-top:12px;border-top:1px solid var(--line);
+      color:#6c7889;font-size:9px
     }
-
-    .signature-name{
-      color:#101f38;
-      font-weight:bold;
-      font-size:13px
+    .document-footer{
+      display:flex;justify-content:space-between;gap:12px;margin-top:42px;
+      padding-top:13px;border-top:1px solid var(--line);color:#788496;font-size:8.5px
     }
-
-    .notice{
-      margin-top:25px;
-      padding:11px 13px;
-      border:1px solid #e8d7ad;
-      background:#fffaf0;
-      color:#74551d;
-      font-size:10px;
-      line-height:1.6
-    }
-
-    footer{
-      border-top:1px solid #dfe4eb;
-      margin-top:38px;
-      padding-top:12px;
-      color:#667085;
-      font-size:10px;
-      text-align:center
-    }
-
+    .document-footer strong{color:var(--navy)}
     .print{
-      display:block;
-      border:0;
-      background:#101f38;
-      color:#fff;
-      padding:11px 18px;
-      border-radius:5px;
-      margin:25px auto;
-      cursor:pointer;
-      font-size:12px
+      display:block;margin:24px auto 0;padding:11px 19px;border:0;border-radius:4px;
+      background:var(--navy);color:white;font-size:11px;font-weight:700;cursor:pointer
     }
-
-    .print:hover{background:#243d60}
-
+    .print:hover{background:#294769}
+    @page{size:A4;margin:15mm}
     @media print{
-      body{padding:0}
-      .document{max-width:100%}
+      html,body{padding:0;background:white}
+      .document{max-width:none;min-height:0;padding:0;box-shadow:none}
       .print{display:none}
-      .notice{break-inside:avoid}
+      .document-footer{margin-top:28px}
+      .data-table,.payment-total,.payment-status,.masthead,.meta-row{
+        break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact
+      }
     }
-
-    @media(max-width:600px){
-      body{padding:18px}
-      .letterhead h1{font-size:16px}
-      .document-title{font-size:16px}
-      table{font-size:10px}
-      th,td{padding:7px}
+    @media(max-width:650px){
+      body{padding:0;background:white}
+      .document{padding:28px 20px;box-shadow:none}
+      .masthead{gap:12px}
+      .crest{width:48px;height:48px;font-size:23px}
+      .institution h1{font-size:13px}
+      .document-title{font-size:23px}
+      .meta-row{flex-direction:column}
+      .document-footer{flex-direction:column}
     }
   </style>`;
 }
@@ -1054,264 +597,252 @@ function documentStyles() {
 /* Document builder */
 
 function buildDocument(type) {
-
   const today = new Date().toLocaleDateString("en-GB");
 
   const titles = {
-    welcome: "Student Welcome Letter",
-    enrolment: "Enrolment Summary",
+    welcome: "Official Student Welcome Letter",
+    enrolment: "Official Student Enrolment Receipt",
     academic: "Academic Records"
   };
 
-  const heading = titles[type];
-
-  if (!heading) {
+  if (!titles[type]) {
     alert("Unknown document type.");
     return "";
   }
 
+  const masthead = `
+    <header class="masthead">
+      <div class="crest">A</div>
+      <div class="institution">
+        <h1>ABM MODERN EDUCATIONAL GLOBAL ONLINE COLLEGE</h1>
+        <p>ABM Global Online College | Institutional Domain: abm-media.me</p>
+      </div>
+    </header>`;
+
+  const footer = `
+    <footer class="document-footer">
+      <span>
+        <strong>ABM Modern Educational Global Online College</strong><br>
+        Institutional Student Records
+      </span>
+      <span>
+        Official Institutional Document<br>
+        Issued: ${today}
+      </span>
+    </footer>`;
+
   let content = "";
 
-  /* WELCOME LETTER */
+  /* Official Student Welcome Letter */
 
   if (type === "welcome") {
-
     content = `
-      <div class="date-line">
-        Date: ${today}
+      <div class="document-kicker">Office of the Chairman · Student Affairs</div>
+      <h2 class="document-title">Official Student<br>Welcome Letter</h2>
+      <div class="title-rule"></div>
+
+      <div class="meta-row">
+        <div>LETTER DATE<strong>${today}</strong></div>
+        <div>ACADEMIC SESSION<strong>${escapeHtml(student.term)}</strong></div>
       </div>
 
-      <h2 class="document-title">Welcome Letter</h2>
-
-      <div class="subject-line">
-        <strong>To:</strong> ${escapeHtml(student.name)}
-      </div>
-
-      <div class="subject-line">
-        <strong>Subject:</strong> Welcome to ABM Global Online College
+      <div class="letter-address">
+        <strong>To:</strong> ${escapeHtml(student.name)}<br>
+        <strong>Student ID:</strong> ${escapeHtml(student.id)}<br>
+        <strong>Department:</strong> ${escapeHtml(student.department)}
       </div>
 
       <div class="letter-body">
-
         <p>Dear ${escapeHtml(student.name)},</p>
-
         <p>
-          It is our pleasure to welcome you to
-          <strong>ABM Modern Educational Global Online College</strong>.
-          We are delighted that you are beginning your academic journey
-          with our learning community for the
-          <strong>${escapeHtml(student.term)}</strong>.
+          On behalf of <strong>ABM Modern Educational Global Online College</strong>,
+          I am pleased to welcome you to our academic community for the
+          <strong>${escapeHtml(student.term)}</strong>. We are pleased to
+          acknowledge your enrolment in the Business Studies programme at Grade 10.
         </p>
-
         <p>
-          Education is an important step towards personal growth,
-          knowledge, and future opportunities. We encourage you to
-          remain focused on your studies, develop good learning habits,
-          participate in academic activities, and make the best use
-          of the learning resources available to you.
+          Your decision to pursue your education is an important commitment
+          to learning, personal development, and future opportunity. We
+          encourage you to approach your studies with curiosity, consistency,
+          and a strong sense of responsibility.
         </p>
-
         <p>
-          We hope that your time with ABM Global Online College will be
-          productive, meaningful, and rewarding. We wish you every
-          success in your educational journey.
+          Throughout your academic session, make effective use of the learning
+          resources available through the Student Portal, keep track of your
+          enrolled subjects, and contact the appropriate college office
+          whenever you require academic or administrative assistance.
         </p>
-
         <p>
-          Once again, welcome to our academic community.
+          We trust that your time with the College will be purposeful and
+          rewarding. We wish you focus, confidence, and every success in
+          the academic work ahead.
         </p>
-
-        <p>
-          With best wishes for your success,
-        </p>
-
+        <p>Welcome to ABM Modern Educational Global Online College.</p>
       </div>
 
-      <h2>Student Information</h2>
-
-      <table>
-        <tr>
-          <th>Student Name</th>
-          <td>${escapeHtml(student.name)}</td>
-        </tr>
-        <tr>
-          <th>Student ID</th>
-          <td>${escapeHtml(student.id)}</td>
-        </tr>
-        <tr>
-          <th>Institutional Email</th>
-          <td>${escapeHtml(student.email)}</td>
-        </tr>
-        <tr>
-          <th>Department / Class</th>
-          <td>${escapeHtml(student.department)}</td>
-        </tr>
-        <tr>
-          <th>Academic Term</th>
-          <td>${escapeHtml(student.term)}</td>
-        </tr>
+      <h3 class="section-heading">Student Particulars</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Student Name</th><td>${escapeHtml(student.name)}</td></tr>
+          <tr><th>Student ID / Code</th><td>${escapeHtml(student.id)}</td></tr>
+          <tr><th>Institutional Email</th><td>${escapeHtml(student.email)}</td></tr>
+          <tr><th>Department &amp; Level</th><td>${escapeHtml(student.department)}</td></tr>
+          <tr><th>Academic Session</th><td>${escapeHtml(student.term)}</td></tr>
+        </tbody>
       </table>
 
-      <div class="signature">
-        Sincerely,<br><br><br>
+      <div class="signature-block">
+        Yours sincerely,
+        <div class="signature-line"></div>
         <span class="signature-name">ABM MOHIUS SUNNAH</span><br>
         Chairman<br>
         ABM Modern Educational Global Online College
-      </div>
-
-      <div class="notice">
-        Sample welcome letter generated for the student dashboard project.
-      </div>
-    `;
+      </div>`;
   }
 
-  /* ENROLMENT SUMMARY */
+  /* Official Student Enrolment Receipt */
 
   if (type === "enrolment") {
-
     content = `
-      <h2 class="document-title">Student Enrolment Summary</h2>
+      <div class="document-kicker">Office of the Registrar · Student Accounts</div>
+      <h2 class="document-title">Official Student<br>Enrolment Receipt</h2>
+      <div class="title-rule"></div>
 
-      <div class="date-line">
-        Generated: ${today}
+      <div class="meta-row">
+        <div>DOCUMENT DATE<strong>${today}</strong></div>
+        <div>ACADEMIC SESSION<strong>${escapeHtml(student.term)}</strong></div>
       </div>
 
-      <h2>Student Information</h2>
-
-      <table>
-        <tr><th>Student Name</th><td>${escapeHtml(student.name)}</td></tr>
-        <tr><th>Student ID</th><td>${escapeHtml(student.id)}</td></tr>
-        <tr><th>Email</th><td>${escapeHtml(student.email)}</td></tr>
-        <tr><th>Department / Class</th><td>${escapeHtml(student.department)}</td></tr>
-        <tr><th>Academic Term</th><td>${escapeHtml(student.term)}</td></tr>
+      <h3 class="section-heading">Student Information</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Student Name</th><td>${escapeHtml(student.name)}</td></tr>
+          <tr><th>Student ID / Code</th><td>${escapeHtml(student.id)}</td></tr>
+          <tr><th>Institutional Email</th><td>${escapeHtml(student.email)}</td></tr>
+          <tr><th>Department &amp; Level</th><td>${escapeHtml(student.department)}</td></tr>
+          <tr><th>Academic Session</th><td>${escapeHtml(student.term)}</td></tr>
+          <tr><th>Enrolment Status</th><td><span class="status-pill">ACTIVE</span></td></tr>
+        </tbody>
       </table>
 
-      <h2>Registered Subjects</h2>
-
-      <table>
-        <tr>
-          <th>Subject</th>
-          <th>Course Code</th>
-          <th>Portal Listing</th>
-        </tr>
-
-        ${student.subjects.map(item => `
-          <tr>
-            <td>${escapeHtml(item[0])}</td>
-            <td>${escapeHtml(item[1])}</td>
-            <td>Listed</td>
-          </tr>
-        `).join("")}
-
+      <h3 class="section-heading">Registered Subjects</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Subject</th><th>Course Code</th><th>Registration</th></tr>
+        </thead>
+        <tbody>
+          ${student.subjects.map(item => `
+            <tr>
+              <td>${escapeHtml(item[0])}</td>
+              <td>${escapeHtml(item[1])}</td>
+              <td>Registered</td>
+            </tr>
+          `).join("")}
+        </tbody>
       </table>
 
-      <div class="notice">
-        Sample enrolment summary generated by the student dashboard project.
-        This document does not contain payment information.
+      <h3 class="section-heading">Payment Information</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Transaction ID</th><td>${escapeHtml(payment.transactionId)}</td></tr>
+          <tr><th>Payment Date</th><td>${escapeHtml(payment.paymentDate)}</td></tr>
+          <tr><th>Total Amount</th><td>${escapeHtml(payment.total)}</td></tr>
+          <tr><th>Amount Paid</th><td>${escapeHtml(payment.paid)}</td></tr>
+          <tr><th>Outstanding Balance</th><td>${escapeHtml(payment.balance)}</td></tr>
+        </tbody>
+      </table>
+
+      <div class="payment-total">
+        <span>Total Payment Received</span>
+        <strong>${escapeHtml(payment.paid)}</strong>
       </div>
-    `;
+
+      <div class="payment-status">
+        <span>PAYMENT STATUS</span>
+        <strong>${escapeHtml(payment.status)}</strong>
+      </div>
+
+      <p class="document-note">
+        This receipt records the enrolment and payment information displayed
+        in the student portal. Retain this document for your personal records.
+      </p>`;
   }
 
-  /* ACADEMIC RECORDS */
+  /* Academic Records */
 
   if (type === "academic") {
-
     content = `
+      <div class="document-kicker">Office of the Registrar · Academic Records</div>
       <h2 class="document-title">Academic Records</h2>
+      <div class="title-rule"></div>
 
-      <div class="date-line">
-        Generated: ${today}
+      <div class="meta-row">
+        <div>RECORD ISSUE DATE<strong>${today}</strong></div>
+        <div>ACADEMIC SESSION<strong>${escapeHtml(student.term)}</strong></div>
       </div>
 
-      <h2>Student Information</h2>
-
-      <table>
-        <tr><th>Student Name</th><td>${escapeHtml(student.name)}</td></tr>
-        <tr><th>Student ID</th><td>${escapeHtml(student.id)}</td></tr>
-        <tr><th>Department / Class</th><td>${escapeHtml(student.department)}</td></tr>
-        <tr><th>Academic Term</th><td>${escapeHtml(student.term)}</td></tr>
+      <h3 class="section-heading">Student Information</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Student Name</th><td>${escapeHtml(student.name)}</td></tr>
+          <tr><th>Student ID / Code</th><td>${escapeHtml(student.id)}</td></tr>
+          <tr><th>Department &amp; Level</th><td>${escapeHtml(student.department)}</td></tr>
+          <tr><th>Academic Session</th><td>${escapeHtml(student.term)}</td></tr>
+        </tbody>
       </table>
 
-      <h2>Registered Subjects</h2>
-
-      <table>
-        <tr>
-          <th>Subject</th>
-          <th>Course Code</th>
-        </tr>
-
-        ${student.subjects.map(item => `
-          <tr>
-            <td>${escapeHtml(item[0])}</td>
-            <td>${escapeHtml(item[1])}</td>
-          </tr>
-        `).join("")}
-
+      <h3 class="section-heading">Registered Subjects</h3>
+      <table class="data-table">
+        <thead><tr><th>Subject</th><th>Course Code</th></tr></thead>
+        <tbody>
+          ${student.subjects.map(item => `
+            <tr><td>${escapeHtml(item[0])}</td><td>${escapeHtml(item[1])}</td></tr>
+          `).join("")}
+        </tbody>
       </table>
 
-      <h2>Academic Record Availability</h2>
-
-      <table>
-        <tr><th>Record Category</th><th>Current Information</th></tr>
-        <tr><td>Assignments</td><td>No assignment records available</td></tr>
-        <tr><td>Course Progress</td><td>No progress records available</td></tr>
-        <tr><td>Grades</td><td>No grades published</td></tr>
-        <tr><td>Live Classes</td><td>No class schedule available</td></tr>
+      <h3 class="section-heading">Academic Record Availability</h3>
+      <table class="data-table">
+        <thead><tr><th>Record Category</th><th>Current Record</th></tr></thead>
+        <tbody>
+          <tr><td>Assignments</td><td>No assignment records available</td></tr>
+          <tr><td>Course Progress</td><td>No progress records available</td></tr>
+          <tr><td>Grades</td><td>No grades published</td></tr>
+          <tr><td>Live Classes</td><td>No class schedule available</td></tr>
+        </tbody>
       </table>
 
-      <div class="notice">
-        Sample academic record document. Grades, results, attendance,
-        and completed-course information have not yet been added.
-      </div>
-    `;
+      <p class="document-note">
+        This document reflects the academic information currently available
+        in the Student Portal. No grades, attendance results, or
+        completed-course outcomes are represented.
+      </p>`;
   }
 
   return `<!DOCTYPE html>
   <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>${heading} - ${escapeHtml(student.name)}</title>
+    <title>${titles[type]} - ${escapeHtml(student.name)}</title>
     ${documentStyles()}
   </head>
-
   <body>
-
     <main class="document">
-
-      <header class="letterhead">
-        <h1>ABM MODERN EDUCATIONAL GLOBAL ONLINE COLLEGE</h1>
-        <p>ABM Global Online College</p>
-        <p>Institutional Domain: abm-media.me</p>
-      </header>
-
+      ${masthead}
       ${content}
-
-      <footer>
-        ABM Modern Educational Global Online College<br>
-        Student Dashboard Project · ${today}
-      </footer>
-
-      <button class="print" onclick="window.print()">
-        Print / Save as PDF
-      </button>
-
+      ${footer}
+      <button class="print" onclick="window.print()">Print / Save as PDF</button>
     </main>
-
   </body>
   </html>`;
 }
 
-/* Download documents */
+/* Open generated documents */
 
 function downloadDocument(type) {
-
   const html = buildDocument(type);
-
-  if (!html) {
-    return;
-  }
+  if (!html) return;
 
   const documentWindow = window.open("", "_blank");
 
@@ -1325,6 +856,5 @@ function downloadDocument(type) {
   documentWindow.document.close();
 }
 </script>
-
 </body>
 </html>
