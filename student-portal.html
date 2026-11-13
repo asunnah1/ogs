@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -590,7 +589,24 @@ function documentStyles() {
       .document-title{font-size:23px}
       .meta-row{flex-direction:column}
       .document-footer{flex-direction:column}
-    }
+      }
+    
+    .signature-image {
+        width: 205px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        margin-bottom: 4px;
+      }
+    
+    .signature-image img {
+        max-width: 190px;
+        max-height: 60px;
+        object-fit: contain;
+        object-position: left center;
+        display: block;
+      }
   </style>`;
 }
 
@@ -693,11 +709,18 @@ function buildDocument(type) {
 
       <div class="signature-block">
         Yours sincerely,
-        <div class="signature-line"></div>
-        <span class="signature-name">ABM MOHIUS SUNNAH</span><br>
-        Chairman<br>
-        ABM Modern Educational Global Online College
-      </div>`;
+
+  <div class="signature-image">
+    <img
+      src="chairman-signature.png"
+      alt="Chairman's Signature"
+    >
+  </div>
+
+  <span class="signature-name">ABM MOHIUS SUNNAH</span><br>
+  Chairman<br>
+  ABM Modern Educational Global Online College
+</div>`;
   }
 
   /* Official Student Enrolment Receipt */
